@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- library bootstrap v.5.0.2 -->
+    <link rel="stylesheet" type="text/css" href="../../plugins/libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../plugins/css/sofactia.css">
+
+    <!--Montserrat-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!--Libreria iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Estilos del widget -->
+    <link rel="stylesheet" href="../../plugins/libs/assetsWidget/css/widget.css">
+</head>
+
+<body class="sf-scroll-y-hidden sf-bg-dark">
+    <!-- content fluid -->
+    <div class="container-fluid pb-5 pb-md-0 px-0 px-md-5 py-0 text-center">
+        <div class="row d-flex justify-content-center align-items-center sf-min-h-vh100 mx-5">
+            <div class="col-lg-4 col-md-3 mt-5 my-md-0 px-0">
+                <h1 class="sf-txt-1xl-700 sf-text-white">Resumen <span class="sf-text-purple">Lección 2</span></h1>
+                <img class="mx-auto sf-img-40 sf-img-md-100 sf-img-sm-30" src="../leccion2/gif/avatar_compromiso.gif"
+                    alt="avatar">
+                <audio src="../leccion2/resumen_leccion-2.mp3" controls class="mt-3"></audio>
+            </div>
+            <div class="col-lg-8 col-md-9 mt-4 my-md-0">
+                <div class="mx-md-5 mx-4 sf-lh-xs">
+                    <p class="sf-text-white mb-2">¡Bien hecho! Has terminado la Lección 2</p>
+                    <p class="sf-text-white mb-2">¡Revisemos este resumen de lo visto en esta lección!</p>
+                    <embed src="../leccion2/doc/resumen_leccion2.pdf" type="application/pdf" class="pdf-viewer">
+                    <a href="../leccion2/doc/resumen_leccion2.pdf" download="Resumen-Leccion-2.pdf"
+                        class="sf-btn sf-btn-purple">
+                        <i class="fa fa-download"></i> Descargar PDF
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-navigation-container glass-back">
+        <button id="pagIndex" class="btn-navigation btn-navigation--prev" onclick="btnPrev()">
+            <i class="fas fa-angle-left"></i> <span>Anterior</span>
+        </button>
+        <button id="next" class="btn-navigation btn-navigation--next" onclick="btnNext()">
+            <span>Siguiente</span> <i class="fas fa-angle-right"></i>
+        </button>
+    </div>
+
+    <!--library javascript-->
+    <script src="../../plugins/libs/jquery-3.3.1.js"></script>
+    <!-- Script del Widget -->
+    <script src="../../plugins/libs/assetsWidget/js/widget.js"></script>
+
+    <script>
+        function btnPrev() {
+            // window.location.href = "modulo.html";
+            //window.location.href = "modulo.php?course_code=<?= $course_code; ?>";
+            const path = location.pathname.split("/").slice(0, -1).join("/");
+            window.location.href = "./index.html";
+            // window.location.href = path.replace("evaluacion", "compromiso") + "/compromiso.html";
+        };
+
+        function btnNext() {
+            // window.location.href = "modulo.html";
+            //window.location.href = "modulo.php?course_code=<?= $course_code; ?>";
+            const path = location.pathname.split("/").slice(0, -1).join("/");
+            window.location.href = "./evaluacion_leccion.html";
+            // window.location.href = path.replace("evaluacion", "compromiso") + "/compromiso.html";
+        };
+    </script>
+</body>
+
+</html>

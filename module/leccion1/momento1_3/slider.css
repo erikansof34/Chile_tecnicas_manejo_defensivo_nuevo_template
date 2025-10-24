@@ -1,0 +1,41 @@
+/*SLIDER 03 -LECCION1 */
+.slider-sld3_lec1 {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  /* Color de fondo temporal para debugging */
+}
+
+.slide-sld3_lec1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide-sld3_lec1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  /* Elimina espacio inferior de las imágenes */
+}
+
+.active-sld3_lec1 {
+  opacity: 1;
+  z-index: 1;
+  /* Asegura que la imagen activa esté por encima */
+}
+
+@media (max-width: 768px) {
+  .slider-sld3_lec1 {
+    height: 40vh;
+  }
+}

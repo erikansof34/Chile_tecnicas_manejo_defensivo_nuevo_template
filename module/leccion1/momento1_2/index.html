@@ -1,0 +1,59 @@
+<section class="row h-100">
+  <!-- Columna izquierda -->
+  <div class="animate__animated animate__fadeInLeftBig sf-bg-dark col-lg-6 col-md-12 sf-cl-row">
+    <h1 class="fw-bold text-center text-white">Antes de comenzar... <br> <span
+        class="sf-text-purple">Reflexionemos...</span>
+    </h1>
+    <p class="text-justify mx-lg-4 text-white">
+      Observa este video y piensa: ¿Realmente vale la pena tener ESE descuido en LA VÍA?
+    </p>
+    <i class="hipt hipt-light my-4">
+      Haz clic para ver el video
+      <i class="icon-inline icon-inline--start fa-solid fa-arrow-turn-down"></i>
+    </i>
+    <!-- Aquí va el video -->
+    <div class="iframe-container mostrar-web d-flex justify-content-center align-items-center" id="Slide1-2Web">
+      <div class="loader spinner-pulse"></div>
+    </div>
+
+  </div>
+
+  <!-- Columna derecha  -->
+  <div class="animate__animated animate__fadeInRightBig col-lg-6 col-md-12 sf-cr-row position-relative">
+    <div class="mostrar-web w-100 h-100 position-absolute top-0 start-0">
+      <video autoplay loop muted playsinline id="fondo-video-alturas" class="w-100 h-100 object-fit-cover">
+        <source src="../../assets/video/fondo-sld2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="mostrar-mobile w-100 h-100 position-absolute top-0 start-0">
+      <video autoplay loop muted playsinline id="fondo-video-alturas-mobile" class="w-100 h-100 object-fit-cover">
+        <source src="../../assets/video/fondo-sld2.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="position-relative z-1">
+      <button class="sf-btn sf-btn-purple" data-bs-toggle="modal" data-bs-target="#sld4_bienestar">
+        <i class="fa fa-question-circle"></i> Pregunta
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="sld4_bienestar" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Pregunta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+            class="fa fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <img src="../../assets/img/botones/pregunta_icono.webp" alt="" class="sf-img-30 mx-auto">
+        <p class="text-justify">¿Estás consciente de que todos somos en algún momento PEATONES, CICLISTAS o CONDUCTORES,
+          y que por lo tanto todos somos
+          frágiles en la vía?</p>
+
+      </div>
+    </div>
+  </div>
+</div>

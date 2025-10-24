@@ -1,0 +1,193 @@
+/* CSS TRANSCRIPCION */
+
+#transcripcion-global {
+    position: fixed;
+    /* Cambiado de absolute a fixed para que sea flotante */
+    bottom: 1%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    /* Ya tiene opacidad */
+    color: white;
+    padding: 5px 5px;
+    border-radius: 8px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    z-index: 10000;
+    display: none;
+    max-width: 80%;
+    white-space: nowrap;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    #transcripcion-global {
+        position: fixed;
+        /* Se mantiene fijo al hacer scroll */
+        bottom: 1%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 95%;
+        font-size: 16px;
+        margin: 0 auto;
+        white-space: normal;
+        background-color: rgba(0, 0, 0, 0.75);
+        /* Opacidad ligeramente reducida para móviles */
+    }
+}
+
+/* Estilo para el icono de transcripción */
+.transcription-toggle {
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 50%;
+}
+
+.transcription-toggle:hover {
+    background-color: #f0f0f0;
+    color: #2a7fba
+}
+
+/* Ajuste de posición para el contenedor de audio */
+.audio-center {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    margin-left: 2.5rem;
+}
+
+@media (max-width: 600px) {
+    .audio-center {
+        margin-left: 0rem;
+    }
+}
+
+.audio-estilos {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.audio-estilos-textos {
+    position: absolute;
+    top: 63%;
+    margin-left: -1%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.audio-estilos-cuadro-epp {
+    position: absolute;
+    top: 50%;
+    margin-left: 87%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Estilos para el reproductor de audio en el slider */
+.audio-container-slider {
+    /* margin-top: 15px; */
+    position: relative;
+    width: 100%;
+}
+
+.transcription-toggle-slider {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #666;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.transcription-toggle-slider:hover {
+    color: #2a7fba;
+}
+
+.transcription-toggle-slider.active {
+    color: #2a7fba;
+}
+
+/* Ajustes para móviles */
+@media (max-width: 768px) {
+    .audio-container-slider {
+        margin-top: 10px;
+    }
+
+    .transcription-toggle-slider {
+        right: 5px;
+        font-size: 1rem;
+    }
+
+    .audio-estilos {
+        margin-left: 1%;
+    }
+
+    .audio-estilos-textos {
+        margin-left: 1%;
+    }
+}
+
+.audio-estilos-v2 {
+    position: absolute;
+    top: 2.4rem;
+    margin-left: 72%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* Agrega esto a tu CSS */
+.audio-reducido {
+    width: 14rem;
+    max-width: 400px;
+    margin: 0 auto;
+    transform: scale(0.9);
+    transform-origin: center;
+}
+
+@media (max-width: 768px) {
+    .audio-reducido {
+        width: 14.3rem;
+        max-width: 100%;
+        transform: scale(1);
+    }
+}
+
+.audio-reducido-modal {
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+    transform: scale(0.9);
+    transform-origin: center;
+}
+
+@media (max-width: 768px) {
+    .audio-reducido-modal {
+        width: 88%;
+        max-width: 100%;
+        transform: scale(1);
+    }
+}
+
+/* Versión alternativa web y mobile para Tarjetas */
+.audio-tarjeta-mobile {
+    width: 18rem;
+    max-width: 90%;
+    min-width: 12rem;
+    margin: 0 auto;
+    transform: scale(0.95);
+    transform-origin: center;
+}

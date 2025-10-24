@@ -1,0 +1,126 @@
+@use './variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  line-height: 1.2 !important;
+}
+
+@media (max-width: 991px) {
+  body {
+    margin: 0;
+    overflow: auto;
+    overflow-x: hidden;
+  }
+}
+
+
+a {
+  font-size: 1rem;
+  font-family: 'DM Sans', sans-serif;
+  color: $blue50;
+  font-weight: 500;
+  margin: 0;
+  text-decoration: none;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $pink;
+  }
+}
+
+b,
+button {
+  all: unset;
+  text-align: center;
+  cursor: pointer;
+}
+
+img {
+  width: auto;
+  display: block;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.5em;
+  font-weight: 700;
+  font-family: $fm-main;
+}
+
+h1,
+h2,
+h3 {
+  white-space: normal;
+  word-wrap: break-word;
+  font-size: 1.6rem;
+  overflow-wrap: break-word;
+}
+
+@media (min-width: 992px) {
+  h1,
+  h2,
+  h3 {
+    font-size: 1.75rem;
+  }
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1.1rem;
+}
+
+p,
+ul,
+ol,
+label {
+  font-family: $fm-main;
+  font-size: 1rem;
+  color: $black;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+span {
+  font-family: $fm-main;
+}
+
+ul,
+ol {
+  padding-left: 1.5em;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #d6338469;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6338469;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d6338469;
+  border-radius: 15px;
+}

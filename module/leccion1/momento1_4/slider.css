@@ -1,0 +1,195 @@
+.card_sld10 {
+  width: 300px;
+  height: 240px;
+  /* Aumentamos la altura para acomodar el audio */
+  position: relative;
+  perspective: 1000px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.card_sld10:hover {
+  transform: scale(1.05);
+}
+
+.card-face_sld10 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transition: transform 0.6s ease;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: linear-gradient(135deg, #e3e5f5fb 0%, #dbdbdb 100%);
+}
+
+.front_sld10 {
+  transform: rotateY(0deg);
+}
+
+.back_sld10 {
+  transform: rotateY(180deg);
+  background: #0F172A;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* Distribuye el espacio entre elementos */
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Cuando se hace clic, se voltea la tarjeta */
+.card_sld10.flipped .front_sld10 {
+  transform: rotateY(-180deg);
+}
+
+.card_sld10.flipped .back_sld10 {
+  transform: rotateY(0deg);
+}
+
+/* Estilos para el frente de la tarjeta */
+.image-overlay_sld10 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.image-overlay_sld10 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-overlay_sld10 i {
+  font-size: 3rem;
+  color: #0F172A;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-overlay_sld10 {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  color: #0F172A;
+  padding: 20px;
+  text-align: center;
+}
+
+.text-overlay_sld10 h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Estilos para el reverso de la tarjeta */
+.back_sld10 img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 15px;
+  filter: brightness(0) invert(1);
+}
+
+.back_sld10 p {
+  color: white;
+  font-size: 16px;
+  line-height: 1.4;
+  margin: 0;
+  margin-bottom: 15px;
+  flex-grow: 1;
+  /* Permite que el párrafo ocupe el espacio disponible */
+}
+
+/* Contenedor de audio */
+.audio-container {
+  width: 100%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+/* Estilos para el audio */
+.card-audio {
+  width: 100%;
+  max-width: 250px;
+  height: 40px;
+}
+
+/* Personalización del reproductor de audio */
+.card-audio::-webkit-media-controls-panel {
+  /* background-color: #4A5568; */
+}
+
+.card-audio::-webkit-media-controls-play-button {
+  color: white;
+}
+
+.card-audio::-webkit-media-controls-current-time-display,
+.card-audio::-webkit-media-controls-time-remaining-display {
+  /* color: white; */
+}
+
+/* Responsive */
+@media (min-width: 576px) {
+  .card_sld10 {
+    width: 228px;
+    height: 240px;
+  }
+}
+
+@media (min-width: 992px) {
+  .card_sld10 {
+    width: 225px;
+    height: 260px;
+  }
+
+  .image-overlay_sld10 {
+    height: 65%;
+  }
+
+  .text-overlay_sld10 {
+    bottom: 30px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .card_sld10 {
+    width: 250px;
+    height: 260px;
+  }
+
+  .image-overlay_sld10 {
+    height: 70%;
+  }
+
+  .text-overlay_sld10 {
+    bottom: 30px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .card_sld10 {
+    width: 400px;
+    height: 280px;
+  }
+
+  .text-overlay_sld10 {
+    bottom: 40px;
+  }
+
+  .card-audio {
+    max-width: 350px;
+  }
+}

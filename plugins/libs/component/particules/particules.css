@@ -1,0 +1,151 @@
+.particles-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: float linear infinite;
+    pointer-events: none;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+}
+
+.particle.blue {
+    background: rgba(173, 216, 230, 0.5);
+    box-shadow: 0 0 15px rgba(173, 216, 230, 0.5);
+}
+
+.particle.white {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.particle.yellow {
+    background: rgba(137, 0, 137, 0.379);
+    box-shadow: 0 0 15px rgba(137, 0, 137, 0.379);
+}
+
+/* Animación circular */
+@keyframes circular {
+    0% {
+        transform: translate(
+            calc(var(--center-x) - 50% + var(--radius) * cos(0deg)), 
+            calc(var(--center-y) - 50% + var(--radius) * sin(0deg))
+        ) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(
+            calc(var(--center-x) - 50% + var(--radius) * cos(360deg)), 
+            calc(var(--center-y) - 50% + var(--radius) * sin(360deg))
+        ) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Animación en forma de infinito */
+@keyframes infinity {
+    0% {
+        transform: translate(
+            calc(var(--center-x) - 50%), 
+            calc(var(--center-y) - 50%)
+        ) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    25% {
+        transform: translate(
+            calc(var(--center-x) - 50% + var(--scale) * 0.5), 
+            calc(var(--center-y) - 50% - var(--scale) * 0.3)
+        ) rotate(90deg);
+    }
+    50% {
+        transform: translate(
+            calc(var(--center-x) - 50%), 
+            calc(var(--center-y) - 50%)
+        ) rotate(180deg);
+    }
+    75% {
+        transform: translate(
+            calc(var(--center-x) - 50% - var(--scale) * 0.5), 
+            calc(var(--center-y) - 50% + var(--scale) * 0.3)
+        ) rotate(270deg);
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(
+            calc(var(--center-x) - 50%), 
+            calc(var(--center-y) - 50%)
+        ) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(calc(100vh + 50px)) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes floatHorizontal {
+    0% {
+        transform: translateX(-50px) rotate(0deg);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    95% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(calc(100vw + 50px)) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Asignar animaciones a las clases */
+.particle.circular {
+    animation: circular linear infinite;
+}
+
+.particle.infinity {
+    animation: infinity linear infinite;
+}
+
+.particle.horizontal {
+    animation: floatHorizontal linear infinite;
+}
+
+.particle.vertical {
+    animation: float linear infinite;
+}

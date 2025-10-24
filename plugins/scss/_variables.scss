@@ -1,0 +1,498 @@
+// ===============================
+// Variables globales de estilos
+// ===============================
+
+// Prefijo para clases utilitarias
+$prefijo: "sf";
+
+$breakpoint-xs: 480px;  // Móviles pequeños
+$breakpoint-sm: 576px;  // Tablets
+$breakpoint-md: 768px; // Laptops
+$breakpoint-lg: 992px; // Monitores grandes
+$breakpoint-xl: 1200px; // Monitores grandes
+$breakpoint-2xl: 1350px; // Pantallas ultra grandes
+$breakpoint-3xl: 1920px; // Pantallas ultra grandes
+
+// --------------------------------
+// Colores principales del proyecto
+// --------------------------------
+$purple:       #6e3cd2;
+$pink:         #C0185D; 
+$bluedark:     #0F172A;
+$bluedark-2:   #022249;
+$secondary:    #005ABB;
+$secondary-2:  #008fb6;
+$white:        #fff;
+$yellow:       #FFCB31;
+$grey:         #E0E93C;
+$black:        #4b5563;
+$blue:         #1e90ff;
+$orange:         #f84e02;
+
+$purple-opacity-1:    #6e3cd2e1;
+$purple-opacity-2:    #6e3cd291;
+$pink-opacity-1:      #C0185De1;
+$pink-opacity-2:      #C0185D91;
+$secondary-opacity-1: #005ABBE1;
+$inicio:              #f8fafcfd;
+// --------------------------------
+// Colores secundarios y variantes
+// --------------------------------
+$primary30:    #81C7B9;
+$white15:      #C5C5C5;
+$white30:      #FFFFFF57;
+$black3:       #333;
+
+$light:        #7C7C7C;
+$dark:         #3F4242;
+// 963CD2
+
+// --------------------------------
+// Otros colores usados en clases
+// --------------------------------
+$blue75:       #20323B; // (puedes ajustar el valor si tienes uno específico)
+$blue50:       #cacaca;
+$blue25:       #0B3D5C;
+$yellow25:       #fde400;
+
+// color alerts 
+$warning-color: #C0392B; // Rojo para advertencias
+$success-color: #0EA14B; // Verde para éxito
+$info-color: #3498DB;    // Azul para información
+$error-color: #E74C3C;   // Rojo más intenso para errores
+
+$disabled-color: #6B6B6B; // Gris para botones deshabilitados
+
+$shadow: rgba(34, 33, 33, 0.5) 4px 4px 10px;
+
+$border-color: (
+  "dark1": $blue75,
+  "dark2": $blue50,
+  "blue1": $blue25,
+  "light": $light,
+  "dark":  $dark,
+);
+
+// Mapa de colores para uso dinámico
+$colors: (
+  "secondary": $secondary,
+  "white": $white,
+  "black": $black,
+  "pink": $pink,
+  "purple": $purple,
+  "blue75": $blue75,
+  "blue50": $blue50,
+  "blue25": $blue25,
+  "yellow": $yellow,
+  "inicio": $inicio,
+  "dark": $bluedark,
+  "secondary-2": $secondary-2,
+);
+
+$btn-colors: (
+  "purple":  ($purple, #6f1599, #6803ab, #5a00a3, #8f1cc4),
+  "blue": ($blue, #7fbfff, #4d94ff, #1e62e0, #1447a8),
+  "pink": ($pink, #f06ea9, #d04178, #a50b4d, #720031),
+  "red": ($pink,#ea5972, #c73856, #9e134b, #6e0c33)
+);
+
+$progress-colors: (
+  "success": #28a745,
+  "info":    #17a2b8,
+  "warning": #ffc107,
+  "danger":  #dc3545
+);
+
+// --------------------------------
+// Tipografías principales
+// --------------------------------
+$fm-main:    'Montserrat', sans-serif;
+$fm-alt:     'DM Sans', sans-serif;
+$fm-title:   'Alata', sans-serif;
+
+// Mapa de familias tipográficas para utilidades
+$text-family: (
+  "main": $fm-main,
+  "alt": $fm-alt,
+  "title": $fm-title,
+);
+
+// --------------------------------
+// Tamaños de texto (mapa)
+// --------------------------------
+// $fs-xs: 10px;
+// $fs-sm: 12px;
+// $fs-base: 14px;
+// $fs-md: 16px;
+// $fs-lg: 18px;
+// $fs-xl: 20px;
+// $fs-xxl: 24px;
+// $fs-1xl: 28px;
+// $fs-1xl1: 35px;
+// $fs-3xl: 51px; // Aproximado a 3.2rem
+// $fs-4xl: 55px; // Aproximado a 3.4rem
+
+$fs-xs: 0.625rem;    // 10 / 16
+$fs-sm: 0.75rem;     // 12 / 16
+$fs-base: 0.875rem;  // 14 / 16
+$fs-md: 1rem;        // 16 / 16
+$fs-lg: 1.125rem;    // 18 / 16
+$fs-xl: 1.25rem;     // 20 / 16
+$fs-xxl: 1.5rem;     // 24 / 16
+$fs-1xl: 1.75rem;    // 28 / 16
+$fs-1xl1: 2.1875rem; // 35 / 16
+$fs-3xl: 3.1875rem;  // 51 / 16
+$fs-4xl: 3.4375rem;  // 55 / 16
+
+// Mapa de tamaños de texto para utilidades
+$text-sizes: (
+  "xs": $fs-xs,      // 10px
+  "sm": $fs-sm,      // 12px
+  "base": $fs-base,  // 14px
+  "md": $fs-md,      // 16px
+  "lg": $fs-lg,      // 18px
+  "xl": $fs-xl,      // 20px
+  "xxl": $fs-xxl,    // 24px
+  "1xl": $fs-1xl,    // 28px
+  "1xl1": $fs-1xl1,  // 35px
+  "3xl": $fs-3xl,     // 51px
+  "4xl": $fs-4xl     // 55px
+);
+
+// --------------------------------
+// Pesos tipográficos (font-weight)
+// --------------------------------
+$fw-thin: 100;
+$fw-extralight: 200;
+$fw-light: 300;
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extrabold: 800;
+$fw-black: 900;
+
+// Mapa de pesos tipográficos para utilidades
+$text-weights: (
+  "100": $fw-thin,
+  "200": $fw-extralight,
+  "300": $fw-light,
+  "400": $fw-normal,
+  "500": $fw-medium,
+  "600": $fw-semibold,
+  "700": $fw-bold,
+  "800": $fw-extrabold,
+  "900": $fw-black
+);
+
+// ===================================
+// Escala base de line-height (variables sueltas)
+// ===================================
+$l-xs:       0.6;        // Muy compacto (equiv. a 0.6em)
+$l-xss:      0.7;        // Extra compacto
+$l-sm:       0.9;        // Compacto (~0.9em / 1rem)
+$l-tight:    1.1;        // Ajustado (~1.1em / 1.2em)
+$l-tight-sm: 1.2;        // Entre tight y base
+$l-semi:     1.225;      // Precisión intermedia (~1.225em)
+$l-base:     1.3;        // Base estándar
+$l-normal:   1.4;        // Recomendado general (~1.4em / 1.5em)
+$l-base-lg:  1.5;        // Ligero extra espacio
+$l-relaxed:  1.6;        // Texto cómodo (~1.6rem)
+$l-loose:    1.8;        // Suelto
+$l-xl:       2;          // Muy suelto / títulos grandes
+$l-xl-fix:   2.8125rem;  // Fijo (equiv. a 45px)   
+
+// Mapa de line-heights para utilidades
+$line-heights: (
+  "xs":         $l-xs,
+  "xxs":        $l-xss,
+  "sm":         $l-sm,
+  "tight":      $l-tight,
+  "tight-sm":   $l-tight-sm,
+  "semi-tight": $l-semi,
+  "base":       $l-base,
+  "normal":     $l-normal,
+  "base-lg":    $l-base-lg,
+  "relaxed":    $l-relaxed,
+  "loose":      $l-loose,
+  "xl":         $l-xl,
+  "xl-fixed":   $l-xl-fix
+);
+
+// --------------------------------
+// Valores porcentuales (mapa)
+// --------------------------------
+$p-5: .5%;
+$p5: 5%;
+$p10: 10%;
+$p15: 15%;
+$p25: 25%;
+$p20: 20%;
+$p50: 50%;
+$p75: 75%;
+$p100: 100%;
+
+// mapa para generar utilidades con medidas en porcentaje.
+$percent-values: (
+  "p-5": $p-5,
+  "p5": $p5,
+  "p10": $p10,
+  "p15": $p15,
+  "p20": $p20,
+  "p25": $p25,
+  "p50": $p50,
+  "p75": $p75,
+  "p100": $p100
+);
+
+// --------------------------------
+// Valores en rem (mapa)
+// --------------------------------
+
+$r1: 1rem;       // 16px
+$r2: 2rem;       // 32px
+$r3: 3rem;       // 48px
+$r4: 4rem;       // 64px
+$r6: 6rem;       // 96px
+$r9: 9.375rem;   // 150px
+$r11: 11.25rem;  // 180px
+$r12: 12.5rem;   // 200px
+$r18: 18.75rem;  // 300px
+$r31: 31.25rem;  // 500px
+$r37: 37.5rem;   // 600px
+$r43: 43.75rem;  // 700px
+$r50: 50rem;     // 800px
+$r56: 56.25rem;  // 900px
+
+// mapa para generar utilidades con medidas en rem.
+$rem-values: (
+  "r1": $r1,
+  "r2": $r2,
+  "r3": $r3,
+  "r4": $r4,
+  "r6": $r6,
+  "r9": $r9,
+  "r11": $r11,
+  "r12": $r12,
+  "r18": $r18,
+  "r31": $r31,
+  "r37": $r37,
+  "r43": $r43,
+  "r50": $r50,
+  "r56": $r56
+);
+
+// --------------------------------
+// Valores en px (mapa)
+// --------------------------------
+
+$px25: 25px;
+$px50: 50px;
+$px75: 75px;
+$px100: 100px;
+$px150: 150px;
+$px200: 200px;
+
+// mapa para generar utilidades con medidas en píxeles.
+$px-values: (
+  "px25": $px25,
+  "px50": $px50,
+  "px75": $px75,
+  "px100": $px100,
+  "px150": $px150,
+  "px200": $px200,
+);
+
+// --------------------------------
+// Radios para border-radius (mapa)
+// --------------------------------
+
+$radius-1: 0.1875rem;  // 3px
+$radius-2: 0.375rem;   // 6px
+$radius-3: 0.5rem;     // 8px
+$radius-4: 0.625rem;   // 10px
+$radius-5: 0.9375rem;  // 15px
+$radius-6: 1.25rem;    // 20px
+$radius-7: 3rem;       // 30px
+$radius-8: 4rem;       // 64px
+$radius-9: 5rem;       // 80px
+
+// Mapa para utilidades de border-radius
+$radius: (
+  "r1": $radius-1,  // 3px
+  "r2": $radius-2,  // 6px
+  "r3": $radius-3,  // 8px
+  "r4": $radius-4,  // 10px
+  "r5": $radius-5,  // 15px
+  "r6": $radius-6,  // 20px
+  "r7": $radius-7,  // 30px
+  "r8": $radius-8,  // 64px
+  "r9": $radius-9   // 80px
+);
+
+// --------------------------------
+// Espaciados en rem (mapa)
+// --------------------------------
+$s-rem0: 0rem;
+$s-rem1: 0.25rem;   // 4px
+$s-rem2: 0.5rem;    // 8px
+$s-rem3: 0.75rem;   // 12px
+$s-rem4: 1rem;      // 16px
+$s-rem5: 1.25rem;   // 20px
+$s-rem6: 1.5rem;    // 24px
+$s-rem7: 2rem;      // 32px
+$s-rem8: 2.5rem;    // 40px
+$s-rem9: 3rem;      // 48px
+$s-rem10: 4rem;     // 64px
+
+// Mapa para utilidades de espaciado en rem
+$spacings-rem: (
+  "r0": $s-rem0,
+  "r1": $s-rem1,       // 4px
+  "r2": $s-rem2,       // 8px
+  "r3": $s-rem3,       // 12px
+  "r4": $s-rem4,       // 16px
+  "r5": $s-rem5,       // 20px
+  "r6": $s-rem6,       // 24px
+  "r7": $s-rem7,       // 32px
+  "r8": $s-rem8,       // 40px
+  "r9": $s-rem9,       // 48px
+  "r10": $s-rem10,     // 64px
+);
+
+// --------------------------------
+// Espaciados en porcentaje (mapa)
+// --------------------------------
+
+$p-5: .5%;          // 0.5%
+$s-pct5: 5%;        // 5%
+$s-pct10: 10%;      // 10%
+$s-pct15: 15%;      // 15%
+$s-pct20: 20%;      // 20%
+$s-pct25: 25%;      // 25%
+$s-pct30: 30%;      // 30%
+$s-pct50: 50%;      // 50%
+
+// Mapa para utilidades de espaciado en porcentaje
+$spacings-pct: (
+  "p-5": $p-5,       // 0.5%
+  "p5": $s-pct5,     // 5%
+  "p10": $s-pct10,   // 10%
+  "p15": $s-pct15,   // 15%
+  "p20": $s-pct20,   // 20%
+  "p25": $s-pct25,   // 25%
+  "p30": $s-pct30,   // 30%
+  "p50": $s-pct50    // 50%
+);
+
+
+$vh10: 10vh; // 10% de la altura de la ventana
+$vh20: 20vh; // 20% de la altura de la ventana  
+$vh30: 30vh; // 30% de la altura de la ventana
+$vh40: 40vh; // 40% de la altura de la ventana
+$vh50: 50vh; // 50% de la altura de la ventana
+$vh60: 60vh; // 60% de la altura de la ventana
+$vh70: 70vh; // 70% de la altura de la ventana
+$vh80: 80vh; // 80% de la altura de la ventana
+$vh90: 90vh; // 90% de la altura de la ventana
+$vh100: 100vh; // 100% de la altura de la ventana
+
+$spacings-vh: (
+  "vh10": $vh10,     // 10%
+  "vh20": $vh20,     // 20%
+  "vh30": $vh30,     // 30%
+  "vh40": $vh40,     // 40%
+  "vh50": $vh50,     // 50%
+  "vh60": $vh60,     // 60%
+  "vh70": $vh70,     // 70%
+  "vh80": $vh80,     // 80%
+  "vh90": $vh90,     // 90%
+  "vh100": $vh100    // 100%
+);
+
+$vw10: 10vw; // 10% de la altura de la ventana
+$vw20: 20vw; // 20% de la altura de la ventana  
+$vw30: 30vw; // 30% de la altura de la ventana
+$vw40: 40vw; // 40% de la altura de la ventana
+$vw50: 50vw; // 50% de la altura de la ventana
+$vw60: 60vw; // 60% de la altura de la ventana
+$vw70: 70vw; // 70% de la altura de la ventana
+$vw80: 80vw; // 80% de la altura de la ventana
+$vw90: 90vw; // 90% de la altura de la ventana
+$vw100: 100vw; // 100% de la altura de la ventana
+
+$spacings-vw: (
+  "vw10": $vw10,     // 10%
+  "vw20": $vw20,     // 20%
+  "vw30": $vw30,     // 30%
+  "vw40": $vw40,     // 40%
+  "vw50": $vw50,     // 50%
+  "vw60": $vw60,     // 60%
+  "vw70": $vw70,     // 70%
+  "vw80": $vw80,     // 80%
+  "vw90": $vw90,     // 90%
+  "vw100": $vw100    // 100%
+);
+
+
+$img-10: 10%;
+$img-15: 15%;
+$img-20: 20%;
+$img-25: 25%;
+$img-30: 30%;
+$img-40: 40%;
+$img-50: 50%;
+$img-60: 60%;
+$img-70: 70%;
+$img-75: 75%;
+$img-80: 80%;
+$img-85: 85%;
+$img-90: 90%;
+$img-100: 100%;
+
+$img-sizes: (
+  "10": $img-10,
+  "15": $img-15,
+  "20": $img-20,
+  "25": $img-25,
+  "30": $img-30,
+  "40": $img-40,
+  "50": $img-50,
+  "60": $img-60,
+  "70": $img-70,
+  "75": $img-75,
+  "80": $img-80,
+  "85": $img-85,
+  "90": $img-90,
+  "100": $img-100
+);
+
+$breakpoints: (
+  "xs": $breakpoint-xs,
+  "sm": $breakpoint-sm,
+  "md": $breakpoint-md,
+  "lg": $breakpoint-lg,
+  "xl": $breakpoint-xl,
+  "2xl": $breakpoint-2xl,
+  "3xl": $breakpoint-3xl
+);
+
+$breakpoints-list: (
+  "3xl": $breakpoint-3xl,
+  "2xl": $breakpoint-2xl,
+  "xl": $breakpoint-xl,
+  "lg": $breakpoint-lg,
+  "md": $breakpoint-md,
+  "sm": $breakpoint-sm,
+  "xs": $breakpoint-xs
+);
+
+
+// Variables para tamaños de modales
+$modal-sizes: (
+  "sm": 400px,
+  "md": 500px,
+  "lg": 700px,
+  "xl": 900px,
+  "xxl": 1140px
+);

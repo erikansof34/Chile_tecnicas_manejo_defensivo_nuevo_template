@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía del Usuario</title>
+
+    <link rel="stylesheet" type="text/css" href="../../plugins/libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../plugins/css/sofactia.css">
+    <link rel="stylesheet" type="text/css" href="../../plugins/css/inicio.css">
+
+    <!--iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Estilos del widget -->
+    <link rel="stylesheet" href="../../plugins/libs/assetsWidget/css/widget.css">
+</head>
+
+<body class="sf-scroll-y-hidden sf-bg-inicio">
+    <div class="container-2">
+        <header>
+            <h1 class="sf-txt-1xl-700 sf-text-center">
+                Bienvenido/a a nuestra <span class="sf-text-purple">plataforma de aprendizaje</span>
+                en línea
+            </h1>
+            <div class="sf-text-center sf-py--5r">
+                <i class="hipt hipt-light">
+                    Haz clic sobre los botones y a medida que avanzas podras presentar el curso
+                    <i class="icon-inline icon-inline--end fa-solid fa-arrow-turn-down"></i>
+                </i>
+            </div>
+            <!-- Barra de progreso -->
+            <div class="sf-progress-container sf-mt-5r">
+                <div class="sf-progress-bar sf-progress-bar-pink" id="progress-bar"></div>
+            </div>
+        </header>
+        <section>
+            <!-- Tabs -->
+            <div class="sf-tabs sf-tabs-4 sf-my-r3">
+                <button class="sf-tab" id="tab1" onclick="changeTab(1)">
+                    <i class="fas fa-book-open"></i> Guía del Usuario
+                    <span class="sf-icon-check" id="check1"></span> <!-- Este es el ícono del check -->
+                </button>
+                <button class="sf-tab" id="tab2" onclick="changeTab(2)">
+                    <i class="fas fa-user-graduate"></i> Objetivos de aprendizaje
+                    <span class="sf-icon-check" id="check2"></span>
+                </button>
+                <button class="sf-tab" id="tab3" onclick="changeTab(3)">
+                    <i class="fa fa-clipboard"></i> Glosario
+                    <span class="sf-icon-check" id="check3"></span>
+                </button>
+                <button class="sf-tab" id="tab4" onclick="changeTab(4)">
+                    <i class="fas fa-folder-tree"></i> Estructura Temática
+                    <span class="sf-icon-check" id="check4"></span>
+                </button>
+            </div>
+
+            <section class="scroll-box sf-content-tabs">
+                <!-- guia del usuario -->
+                <div class="p-4" id="content1">
+                    <h1 class="sf-txt-1xl-700 sf-text-center sf-pb-1r">Guía del <span
+                            class="sf-text-purple">Usuario</span>
+                    </h1>
+                    <div class="row">
+                        <!-- Requisitos técnicos -->
+                        <div class="col-md-12 col-lg-5">
+                            <div class="title-icon">
+                                <i class="icon icon-purple fas fa-desktop"></i>
+                                <span>Requisitos técnicos</span>
+                            </div>
+                            <p class="ms-5 text-justify">Para aprovechar al máximo tu experiencia, te recomendamos
+                                acceder al curso
+                                desde un
+                                navegador actualizado (como Google Chrome o Mozilla Firefox), preferiblemente desde
+                                un
+                                computador o tablet. Usa una conexión estable a internet para evitar interrupciones
+                                al
+                                visualizar videos o realizar actividades.</p>
+                        </div>
+                        <!-- Navegación del curso -->
+                        <div class="col-md-12 col-lg-7">
+                            <div class="title-icon">
+                                <i class="icon icon-purple fas fa-globe"></i>
+                                <span>Navegación del curso</span>
+                            </div>
+                            <ul class="ms-5 mb-0 text-justify">
+                                <li>Navega utilizando los botones de avance y retroceso para recorrer el contenido.
+                                </li>
+                                <li>Puedes
+                                    pausar o repetir los videos y audios cuantas veces necesites.</li>
+                                <li>Antes de iniciar, debes
+                                    realizar la evaluación diagnóstica para validar qué conocimientos previos ya
+                                    traes y
+                                    te van a ayudar a comprender mejor los contenidos del curso. </li>
+                                <li>Debes revisar cada lección y sus contenidos, asegúrate de completar cada una
+                                    antes
+                                    de pasar a la siguiente.</li>
+                                <li>Recuerda marcar como completadas las lecciones que vayas terminando.</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-12 mt-2">
+                            <div class="title-icon">
+                                <i class="icon icon-purple fas fa-globe"></i>
+                                <span>Importante</span>
+                            </div>
+                            <!-- <div class="bullet ms-5">
+                                <i class="icon icon-purple fas fa-arrow-right"></i>
+                                <p>Es muy importante que <strong>completes al menos el 80% de la revisión de
+                                        contenidos y recursos del curso,</strong> para poder presentar la evaluación
+                                    sumativa, de
+                                    lo contrario no podrás presentarla.</p>
+                            </div> -->
+                            <div class="bullet ms-5">
+                                <i class="icon icon-purple fas fa-arrow-right"></i>
+                                <p>Para mayor facilidad de uso, todos nuestros recursos de audio cuentan con la
+                                    transcripción en texto para ser leídos, y todos nuestros videos tienen
+                                    subtítulos para poder acceder al contenido de forma multicanal (Visual, Oído).
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- guia del participante -->
+                <div class="p-4" id="content2">
+                    <h1 class="sf-txt-1xl-700 sf-text-center sf-pb-1r">Objetivos de <span
+                            class="sf-text-purple">aprendizaje</span>
+                    </h1>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="title-icon">
+                                <i class="icon icon-purple fas fa-bullseye"></i>
+                                <span>Objetivo General</span>
+                            </div>
+                            <p class="ms-5">Aplicar protocolos de prevención vial que mejoren las conductas y actitudes
+                                durante la conducción para proteger la vida
+                                y reducir la siniestralidad en nuestras operaciones.</p>
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <div class="title-icon">
+                                <i class="icon icon-purple fas fa-bullseye"></i>
+                                <span>Objetivos Específicos</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12">
+                            <div class="bullet ms-3">
+                                <i class="icon icon-purple fas fa-arrow-right"></i>
+                                <p><strong>Unidad 1. </strong>
+                                    Recordar las técnicas de manejo defensivo más útiles para conducir de manera segura.
+                                </p>
+                            </div>
+                            <div class="bullet ms-3">
+                                <i class="icon icon-purple fas fa-arrow-right"></i>
+                                <div>
+                                    <p><strong>Unidad 2. </strong>
+                                        Afianzar las buenas prácticas en el manejo defensivo.</p>
+                                </div>
+                            </div>
+                            <div class="bullet ms-3">
+                                <i class="icon icon-purple fas fa-arrow-right"></i>
+                                <p><strong>Unidad 3. </strong>
+                                    Recordar los factores que ayuden a prevenir accidentes viales en nuestras
+                                    operaciones.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--glosario-->
+                <div class="p-4 w-100" id="content3">
+                    <h1 class="sf-txt-1xl-700 sf-text-center sf-pb-1r">Glosario</h1>
+                    <p class="text-center">Veamos las palabras claves que te ayudarán a comprender mejor la información
+                        valiosa de este curso:</p>
+                    <div class="row mt-3">
+                        <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mb-md-0">
+                            <div class="item-glorasio" style="grid-template-columns: repeat(3, 1fr);">
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Actor Vial:</span> Cualquier persona que
+                                        transita por la vía pública, ya
+                                        sea como peatón, ciclista, motociclista, pasajero o conductor.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Anticipación de Situaciones:</span>
+                                        Habilidad para prever las posibles
+                                        acciones de otros actores viales y los peligros potenciales en el entorno.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Cultura Vial:</span> Comportamiento
+                                        colectivo en la vía, basado en el
+                                        respeto, la empatía y la cortesía, para promover la convivencia y la seguridad
+                                        entre todos los actores
+                                        viales.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Demarcaciones Viales:</span> Marcas pintadas
+                                        en el pavimento, como
+                                        líneas y flechas, que regulan el tránsito.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Distancia de Seguridad:</span> La distancia
+                                        prudente que se debe
+                                        mantener con el vehículo de adelante para tener tiempo de reacción y espacio
+                                        para frenar o maniobrar.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Distracciones:</span> Cualquier actividad
+                                        que desvía la atención del
+                                        actor vial de su tarea principal, como el uso del celular, escuchar audífonos o
+                                        comer, lo que aumenta el
+                                        riesgo de accidentes.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Elementos de Protección Personal
+                                            (EPP):</span> Equipos obligatorios o
+                                        recomendados para la seguridad personal, como cascos certificados, chalecos
+                                        reflectantes y guantes.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Fatiga y Somnolencia:</span> Estado físico y
+                                        mental que disminuye la
+                                        atención y los reflejos, pudiendo causar "micro-sueños" y comprometiendo la
+                                        capacidad de reaccionar a
+                                        tiempo.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Jerarquía de la Movilidad:</span> Orden de
+                                        prioridad en la vía,
+                                        establecido por la ley de tránsito, donde los actores más vulnerables tienen
+                                        prelación. El orden es:
+                                        peatones > ciclistas > motociclistas > transporte público > vehículos de carga >
+                                        vehículos particulares.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Ley Emilia:</span> Ley N.º 20.770 de Chile
+                                        que establece fuertes
+                                        sanciones, como multas, suspensión de licencia e incluso penas de prisión, para
+                                        quienes conducen bajo los
+                                        efectos del alcohol y causan lesiones o la muerte.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Manejo Defensivo:</span> Estrategia de
+                                        conducción que busca evitar
+                                        accidentes a pesar de los errores de otros conductores o de condiciones
+                                        adversas.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Protocolo PAS:</span> Procedimiento de tres
+                                        pasos a seguir en caso de un
+                                        siniestro vial: Proteger la zona, Avisar a las autoridades y Socorrer a los
+                                        heridos.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Puntos Ciegos:</span> Zonas alrededor de un
+                                        vehículo que no pueden ser
+                                        vistas por el conductor a través de los espejos.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Revisión Pre-viaje:</span> Verificación
+                                        rápida de los elementos de
+                                        seguridad y el estado del vehículo antes de iniciar un desplazamiento, como
+                                        frenos, luces y presión de
+                                        neumáticos.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Revisión Técnica (RTV):</span> Inspección
+                                        obligatoria que certifica que
+                                        un vehículo cumple con las condiciones mínimas de seguridad y ambientales.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Regla de los 3 Segundos:</span> Técnica para
+                                        medir una distancia de
+                                        seguridad adecuada con el vehículo de adelante, contando un tiempo de 3 segundos
+                                        desde que pasa por un punto
+                                        de referencia.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Señales Informativas:</span> Señales viales
+                                        que orientan al usuario con
+                                        información sobre destinos, servicios o distancias.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Señales Preventivas:</span> Señales viales
+                                        que advierten sobre posibles
+                                        peligros en la vía, como una "Zona Escolar". Son romboidales y de color amarillo
+                                        y negro.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Señales Reglamentarias:</span> Señales
+                                        viales que indican prohibiciones
+                                        u obligaciones.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Velocidad Inadecuada:</span> Conducir a una
+                                        velocidad que no es segura
+                                        para las condiciones actuales de la vía, como el clima, el tráfico o la
+                                        visibilidad.</p>
+                                    <hr>
+                                </div>
+                                <div class="card_item">
+                                    <p><span class="sf-text-purple fw-bold">Visibilidad del Actor Vial:</span> La
+                                        capacidad de ser visto por otros
+                                        en la vía, especialmente en condiciones de poca luz.</p>
+                                    <hr>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-lg-12 mb-3 mb-md-0">
+                                <div class="d-flex justify-content-center mt-4">
+                                    <a href="./doc/glosario.pdf" download class="sf-btn sf-btn-purple">
+                                        <i class="fa fa-download"></i> Descargar PDF
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--estructura tematica-->
+                <div class="p-4 w-100" id="content4">
+                    <div class="">
+                        <h1 class="sf-txt-1xl-700 sf-text-center mb-0">Estructura <span
+                                class="sf-text-purple">temática</span>
+                        </h1>
+                        <p class="text-center mb-2">En este curso encontrarás estas <span class="purple">tres
+                                (3) lecciones</span> para identificar, prevenir y controlar los riesgos asociados al
+                            manejo defensivo.</p>
+                    </div>
+                    <!--Instruccion-->
+                    <div class="sf-text-center sf-py-5r">
+                        <i class="hipt hipt-light">
+                            <span class="web">
+                                Desliza el cursor sobre cada lección para mostrar su contenido
+                                <i class="icon-inline icon-inline--end fa-solid fa-arrow-turn-down"></i>
+                            </span>
+                            <span class="mobile">
+                                Lee atentamente el contenido de cada momento
+                                <i class="icon-inline icon-inline--end fa-solid fa-arrow-turn-down"></i>
+                            </span>
+                        </i>
+                    </div>
+
+                    <!--cards -->
+                    <div class="row mt-3">
+                        <div class="col-sm-12 col-md-4 col-lg-4 mb-3 mb-md-0">
+                            <div class="card-step">
+                                <img src="../../assets/img/fondos/momento1.webp" alt="Imagen 1">
+                                <div class="card-info">
+                                    <h3>1-Teoría del Manejo Defensivo</h3>
+                                    <hr>
+                                    <p>Empezaremos por recordar algunos conceptos clave del MANEJO DEFENSIVO y sus
+                                        implicaciones para nuestro rol de
+                                        conductores en el trabajo.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4 mb-3 mb-md-0">
+                            <div class="card-step">
+                                <img src="../../assets/img/fondos/momento2.webp" alt="Imagen 2">
+                                <div class="card-info">
+                                    <h3>2-Buenos hábitos de Manejo Defensivo</h3>
+                                    <hr>
+                                    <p>Se abordarán las buenas prácticas en el manejo defensivo</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-4 col-lg-4 mb-3 mb-md-0">
+                            <div class="card-step">
+                                <img src="../../assets/img/fondos/momento3.webp" alt="Imagen 3">
+                                <div class="card-info">
+                                    <h3>3-Factores para evitar Accidentes de Tránsito</h3>
+                                    <hr>
+                                    <p>Profundizaremos en los factores clave para evitar accidentes de tránsito.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+        <section class="mt-3">
+            <!-- Botón "Comenzar el curso" -->
+            <p id="warning-msg" class="sf-msg sf-msg-warning">Por favor, revisa todas las secciones antes de comenzar el
+                curso.
+            </p>
+            <p id="success-msg" class="sf-msg sf-msg-success hidden">¡Perfecto! Ya puedes comenzar tu curso.</p>
+
+            <button class="sf-btn sf-btn-block sf-disabled" id="start-btn">
+                <i class="fas fa-hand-pointer"></i> Comenzar el curso
+            </button>
+            <!-- <button class="sf-btn sf-btn-block sf-disabled" onclick="comenzarCurso()">
+                <i class="fas fa-hand-pointer"></i> Comenzar el curso</button> -->
+
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="../../plugins/libs/component/slide_inicio.js"></script>
+    <!-- Script del Widget -->
+    <script src="../../plugins/libs/assetsWidget/js/widget.js"></script>
+    <!-- LMS SCORM Integration -->
+    <script src="lms.js"></script>
+    <!-- Script para activar el primer tab al cargar -->
+    <script>
+        function isSCORMEnvironment() {
+            return (typeof window.parent.API !== 'undefined') ||
+                (typeof window.API !== 'undefined') ||
+                (window !== window.top);
+        }
+
+        document.getElementById('start-btn').addEventListener('click', function () {
+            window.location.href = '../leccion1/index.html';
+        });
+
+        // FUNCIÓN DE REDIRECCIONAMIENTO COMENTADA - Para uso futuro
+        /*
+        function redireccionamiento() {
+            const url = 'https://otec.sofactia.pro/mod/scorm/view.php?id=24';
+            if (isSCORMEnvironment()) {
+                // Estamos en SCORM, cerrar y redirigir
+                try {
+                    // Intentar cerrar el SCORM primero
+                    if (typeof window.parent.API !== 'undefined') {
+                        window.parent.API.LMSFinish();
+                    }
+                    if (typeof window.API !== 'undefined') {
+                        window.API.LMSFinish();
+                    }
+
+                    // Redirigir la ventana principal
+                    window.top.location.href = url;
+                } catch (e) {
+                    console.log('Error al cerrar SCORM:', e);
+                    window.top.location.href = url;
+                }
+            } else {
+                // No es SCORM, redirigir normalmente
+                window.location.href = url;
+            }
+        }
+        */
+
+        function mostrarPaginaFinal() {
+            document.body.innerHTML = `
+                <div style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 100vh;
+                    background-color: #f8f9fa;
+                    font-family: 'Montserrat', sans-serif;
+                    text-align: center;
+                    padding: 20px;
+                ">
+                    <div style="
+                        background: white;
+                        padding: 40px;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                        max-width: 700px;
+                    ">
+                        <i class="fas fa-check-circle" style="
+                            font-size: 60px;
+                            color: #28a745;
+                            margin-bottom: 20px;
+                        "></i>
+                        <h2 style="
+                            color: #333;
+                            margin-bottom: 20px;
+                            font-weight: 700;
+                        ">¡Introducción Completada!</h2>
+                        <p style="
+                            color: #666;
+                            font-size: 16px;
+                            line-height: 1.5;
+                            margin-bottom: 0;
+                        ">Por favor, cierre esta ventana para continuar con la lección 1.</p><br>
+                        <img src="../inicio/introduccion_scorm.webp" class="mx-auto " alt="Guía">
+                    </div>
+                </div>
+            `;
+        }
+
+        function comenzarCurso() {
+            try {
+                const api = findAPI();
+                if (api) {
+                    // Inicializar SCORM si no está inicializado
+                    const initResult = api.LMSInitialize('');
+                    console.log('Inicialización SCORM:', initResult);
+
+                    // Marcar el curso como completado al 100%
+                    const result1 = api.LMSSetValue('cmi.core.lesson_status', 'passed');
+                    const result2 = api.LMSSetValue('cmi.core.score.raw', '100');
+                    const result3 = api.LMSSetValue('cmi.core.score.min', '0');
+                    const result4 = api.LMSSetValue('cmi.core.score.max', '100');
+
+                    const commitResult = api.LMSCommit('');
+
+                    console.log('Resultados SCORM:', { result1, result2, result3, result4, commitResult });
+
+                    // Verificar errores
+                    const errorCode = api.LMSGetLastError();
+                    const errorString = api.LMSGetErrorString(errorCode);
+                    console.log('Error SCORM:', errorCode, errorString);
+
+                    // Verificar si se guardó correctamente
+                    const savedStatus = api.LMSGetValue('cmi.core.lesson_status');
+                    const savedScore = api.LMSGetValue('cmi.core.score.raw');
+                    console.log('Estado guardado:', savedStatus, 'Puntuación guardada:', savedScore);
+
+                    // Finalizar SCORM
+                    const finishResult = api.LMSFinish('');
+                    console.log('Finalización SCORM:', finishResult);
+
+                    // Mostrar página final
+                    mostrarPaginaFinal();
+
+                    // REDIRECCIONAMIENTO COMENTADO - Para uso futuro
+                    /*
+                    setTimeout(() => {
+                        if (window.opener) {
+                            window.close();
+                        } else {
+                            redireccionamiento();
+                        }
+                    }, 1000);
+                    */
+
+                } else {
+                    console.log('API SCORM no disponible - funcionando en modo standalone');
+
+                    // Mostrar página final incluso sin SCORM
+                    mostrarPaginaFinal();
+
+                    // REDIRECCIONAMIENTO COMENTADO - Para uso futuro
+                    /*
+                    setTimeout(() => {
+                        if (window.opener) {
+                            window.close();
+                        } else {
+                            redireccionamiento();
+                        }
+                    }, 2000);
+                    */
+                }
+            } catch (error) {
+                console.error('Error al comunicarse con SCORM:', error);
+
+                // Mostrar página final incluso con error
+                mostrarPaginaFinal();
+
+                // REDIRECCIONAMIENTO COMENTADO - Para uso futuro
+                /*
+                setTimeout(() => {
+                    if (window.opener) {
+                        window.close();
+                    } else {
+                        redireccionamiento();
+                    }
+                }, 2000);
+                */
+            }
+        }
+
+        // Función auxiliar para encontrar la API SCORM
+        function findAPI() {
+            let api = null;
+            let win = window;
+
+            // Buscar en la ventana actual y ventanas padre
+            while (win && !api) {
+                if (win.API) {
+                    api = win.API;
+                    break;
+                }
+                if (win.API_1484_11) {
+                    api = win.API_1484_11;
+                    break;
+                }
+                if (win.parent && win.parent !== win) {
+                    win = win.parent;
+                } else {
+                    break;
+                }
+            }
+
+            // Si no se encuentra en ventanas padre, buscar en opener
+            if (!api && window.opener) {
+                win = window.opener;
+                while (win && !api) {
+                    if (win.API) {
+                        api = win.API;
+                        break;
+                    }
+                    if (win.API_1484_11) {
+                        api = win.API_1484_11;
+                        break;
+                    }
+                    if (win.parent && win.parent !== win) {
+                        win = win.parent;
+                    } else {
+                        break;
+                    }
+                }
+            }
+
+            return api;
+        }
+
+        window.addEventListener('load', function () {
+            // Activar el primer tab
+            if (typeof changeTab === 'function') {
+                changeTab(1);
+            } else {
+                setTimeout(function () {
+                    if (typeof changeTab === 'function') {
+                        changeTab(1);
+                    }
+                }, 100);
+            }
+
+            // Reiniciar solo el índice del slider
+            localStorage.setItem('cursoProgreso', JSON.stringify({
+                currentIndex: 0,
+                timestamp: new Date().toISOString()
+            }));
+        });
+    </script>
+</body>
+
+</html>

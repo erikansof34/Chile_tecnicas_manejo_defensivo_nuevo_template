@@ -1,0 +1,134 @@
+<!-- <?php
+    require('../../../functions_helpers.php'); /*load helper*/
+    check_session(); /*check session by employee */
+    $course_code = $_GET['course_code']; /* recibir el código del curso */
+    //$module_id        = __my_simple_crypt__($_GET['module'], 'd');
+    $module_id = 54;
+    $unique_course_id = check_permission_employee_course($course_code); /* Comprobar si el empleado tiene acceso al curso*/
+    $extension_url = "?course_code=" . $course_code; /* variable url para pasar el código del curso*/
+    
+    
+    $progress = progress_courses($course_code,$module_id);
+    $firma =  image_profile($course_code);
+   
+?> -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- library bootstrap v.5.0.2 -->
+    <link rel="stylesheet" type="text/css" href="../../plugins/libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../plugins/css/sofactia.css">
+    <link rel="stylesheet" type="text/css" href="../../plugins/css/bars.css">
+
+    <!--Tiporgraia Montserrat-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!--Libreria iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Estilos del widget -->
+    <link rel="stylesheet" href="../../plugins/libs/assetsWidget/css/widget.css">
+</head>
+
+<body class="sf-scroll-y-hidden sf-bg-dark body-style">
+    <!-- Info usuario -->
+    <input id='course_code' value="<?php echo $course_code;?>" hidden>
+    <input id='module_id' value="<?php echo $module_id;?>" hidden>
+    <input id='unique_course_id' value="<?php echo $unique_course_id ;?>" hidden>
+    <input id='emp_unique_id' value="<?php echo $_SESSION['employee_data']['emp_unique_id'] ;?>" hidden>
+    <!-- Header con el logo -->
+
+    <div class=" container-fluid px-0 px-md-5 py-4 text-center">
+        <div class="row d-flex justify-content-center align-items-center sf-min-h-vh90">
+            <div class="col-lg-12 col-md-12">
+                <div class="mx-4 mx-xl-5">
+                    <i class="hipt hipt-dark">
+                        Ahora para finalizar, por favor lee en voz alta este
+                        compromiso que asumes de ahora en adelante en el cuidado de tus manos:
+                        <i class="icon-inline icon-inline--end fa-solid fa-arrow-turn-down"></i>
+                    </i>
+                    <img src="../../assets/gif/avatar_compromiso.gif" alt="avatar"
+                        class="sf-img-80 sf-img-md-20 img-center mx-auto">
+
+                    <h1 class="sf-text-white sf-txt-1xl-700 text-center">En mi calidad de
+                        <span class="sf-text-purple">Trabajador o Contratista</span>
+                    </h1>
+                    <hr>
+                    <p class="sf-text-white text-justify">Me comprometo a cuidar y proteger mis manos en todo
+                        momento durante el desempeño de mis tareas en el trabajo. Utilizaré siempre los
+                        equipos de protección personal adecuados, como guantes específicos para cada
+                        actividad, y seguiré las técnicas correctas de uso de herramientas para evitar
+                        accidentes.
+                        Me aseguraré de mantener una postura ergonómica y no forzar las herramientas más
+                        allá de sus capacidades. Además, seré responsable al almacenar y manipular las
+                        herramientas, garantizando que estén en buenas condiciones y ubicadas en lugares
+                        seguros, evitando cualquier riesgo innecesario para mí y para mis compañeros de
+                        trabajo.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-navigation-container glass-back">
+        <button id="pagIndex" class="btn-navigation btn-navigation--prev" onclick="btnPrev()">
+            <i class="fas fa-angle-left"></i> <span>Anterior</span>
+        </button>
+    </div>
+
+    <footer>
+        <script src="../../plugins/libs/jquery-3.3.1.js"></script>
+        <script src="../../plugins/js/trackingmanagern3.js"></script>
+        <script src="../../plugins/js/sessvars.js"> </script>
+        <!-- <script src="../assets/js/script.js"></script> -->
+        <script src="../../plugins/js/tracking.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const tempRange = document.getElementById('tempRange');
+                const temperature = document.getElementById('temperature');
+                const preventiveMeasures = document.querySelectorAll('#right-messages .centered-text');
+
+                tempRange.addEventListener('input', function () {
+                    const value = this.value;
+                    temperature.style.height = value + '%';
+
+                    preventiveMeasures.forEach((measure, index) => {
+                        if (value >= (index + 1) * 20) {
+                            measure.classList.add('visible');
+                        } else {
+                            measure.classList.remove('visible');
+                        }
+                    });
+                });
+            });
+        </script>
+        <script>
+            $('#evaluacion').click(function () {
+                window.location.href = 'quiz.html';
+                // window.location.href = "quiz.php?course_code=<?= $course_code; ?>";
+
+            });
+
+            // function redirect pag index
+            // function btnPrev() {
+            //     //window.location.href = "index.php?course_code=<?= $course_code; ?>";
+            //     // window.location.href = "index.html";
+            //     const path = location.pathname.split("/").slice(0, -1).join("/");
+            //     window.location.href = path.replace("compromiso", "leccion3") + "/evaluacion_leccion3.html";
+            // };
+
+            function btnPrev() {
+                // window.location.href = "modulo.html";
+                //window.location.href = "modulo.php?course_code=<?= $course_code; ?>";
+                const path = location.pathname.split("/").slice(0, -1).join("/");
+                window.location.href = "../leccion3/evaluacion_leccion.html";
+                // window.location.href = path.replace("evaluacion", "compromiso") + "/compromiso.html";
+            };
+        </script>
+    </footer>
+</body>
+
+</html>

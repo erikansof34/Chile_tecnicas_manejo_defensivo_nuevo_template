@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- library bootstrap v.5.0.2 -->
+	<link rel="stylesheet" type="text/css" href="../../plugins/libs/bootstrap/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="../../plugins/css/sofactia.css">
+	<link rel="stylesheet" type="text/css" href="../../plugins/css/bars.css">
+
+	<!--Tiporgraia Montserrat-->
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+	<!--Libreria iconos-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+	<!-- Estilos del widget -->
+	<link rel="stylesheet" href="../../plugins/libs/assetsWidget/css/widget.css">
+
+	<style>
+		.sf-bg-blue25 {
+			background-color: #022249 !important;
+		}
+
+		.header .contentHeader {
+			color: #fff !important;
+			background: #003a5d !important;
+			height: 55px;
+		}
+
+		.contentHeader i {
+			color: #fff !important;
+			font-size: 1.5rem;
+			padding: 10px;
+			top: 11px;
+			right: 3%;
+			cursor: pointer;
+		}
+
+		.header .contentHeader>div:nth-child(1) {
+			grid-template-columns: 200px 50px;
+			padding: 0 10px;
+			justify-content: space-between;
+		}
+
+		.header .contentHeader .logoTop {
+			width: 74%;
+			margin-top: 4px;
+		}
+	</style>
+</head>
+
+<body class="sf-scroll-y-hidden sf-bg-blue25">
+
+	<header class="header">
+		<!-- header -->
+		<div class="contentHeader bg-header-r">
+			<div>
+				<img src="../../assets/img/logo/logo-white.svg" alt="Orientación en prevención de riesgos"
+					class="logo logoTop">
+				<i class="fas fa-bars" style="padding: 10px 10px 10px 20px;"></i>
+
+				<div class="miga_pan_movil">
+					<p style="text-align: center; display: none;" id="breadcrumb_movil"></p>
+				</div>
+
+			</div>
+			<div class="headerOpc">
+				<i class="fas fa-times"></i>
+				<br>
+				<h1 style="color: var(--secondary) !important"></h1>Hola! <b>
+					<?= ucwords($CI->session->userdata('employee_data')['fullname']); ?>
+				</b></h1>
+				<!-- <h1>Hola! <b>Nombre user</b></h1> -->
+				<h5>Bienvenido a su Ruta de Aprendizaje!</h5>
+				<div class="headerProg">
+					<p><b>Progreso: </b><span id="course-progress"><strong>
+								<?= $progress[0]['course_progress'];?>%</span></strong></p>
+				</div>
+				<hr>
+				<ul>
+					<!-- <a href="index.html"> -->
+					<a href="index.php?course_code=<?= $course_code; ?>">
+						<li><i class="fas fa-caret-right"></i> Presentación</li>
+					</a>
+					<!-- <a href="modulo.html" class="act"> -->
+					<a href="modulo.php?course_code=<?= $course_code; ?>">
+						<li><i class="fas fa-caret-right"></i> Contenido</li>
+					</a>
+					<!-- <a href="quiz.html"> -->
+					<a href="quiz.php?course_code=<?= $course_code; ?>" class="act">
+						<li><i class="fas fa-caret-right"></i> Evaluación</li>
+					</a>
+				</ul>
+				<hr>
+				<ul>
+					<!-- <a href="index.html"> -->
+					<a href="../../../login.php">
+						<li><i class="fas fa-caret-right"></i> Mis cursos</li>
+					</a>
+					<!-- <a href="modulo.html"> -->
+					<a href="../../../logout.php">
+						<li><i class="fas fa-caret-right"></i> Cerrar sesión</li>
+					</a>
+				</ul>
+				<span class="infSof">© Sofactia. powered by Unydos</span>
+			</div>
+		</div>
+	</header>
+	<!-- content fluid -->
+	<div class="container-fluid px-0 px-md-5 py-0 text-center">
+		<div class="row d-flex justify-content-center align-items-center sf-min-h-vh100 sf-mx-p10-p10">
+			<div class="col-lg-6 col-md-12">
+				<img src="../../assets/img/avatars/avatar-alzando-brazos.webp"
+					class="mx-auto sf-img-40 sf-img-md-50 sf-img-sm-30">
+			</div>
+			<div class="col-lg-6 col-md-12 top-quiz text-center sf-my-p10-p10 ">
+				<div class="mx-4 sf-lh-xs">
+					<!-- <?php
+						if(!empty($progress[0]['course_progress']) && $progress[0]['course_progress'] >=  $valor_minimo_progreso){
+					?> -->
+					<h1 class="sf-txt-1xl-700 text-center sf-text-white">Evaluación <span
+							class="sf-text-secondary">Final</span></h1>
+					<p class="sf-text-white">Ahora evaluemos lo aprendido en este curso
+						presentando esta evaluación.
+						<br>¡MUCHO ÉXITO!
+					</p>
+					<p class="sf-text-white">Por favor haz clic en el botón para comenzar la evaluación del
+						módulo. </p>
+
+					<!-- <a onclick="btnPrev()" target="_blank" class="sf-btn sf-btn-blue">
+						<i class="fas fa-clipboard-check"></i> Anterior
+					</a> -->
+					<a href="#" target="_blank" class="sf-btn sf-btn-blue">
+						<i class="fas fa-clipboard-check"></i> Iniciar Evaluación
+					</a>
+					<!-- <?php } else { ?>
+							<h1>RECUERDA</h1>
+							<h6 class="sf-text-white">Debes superar el <?=$valor_minimo_progreso;?>% de la valoración para aprobar el módulo. </h6>
+					<?php } ?> -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Botones de navegación -->
+	<div class="btn-navigation-container glass-back">
+		<button id="pagIndex" class="btn-navigation btn-navigation--prev" onclick="btnPrev()">
+			<i class="fas fa-angle-left"></i> <span>Anterior</span>
+		</button>
+	</div>
+
+	<script src="../../plugins/libs/jquery-3.3.1.js"></script>
+	<script src="../../plugins/js/trackingmanagern3.js"></script>
+	<script src="../../plugins/js/sessvars.js"> </script>
+	<!-- <script src="../assets/js/script.js"></script> -->
+	<script src="../../plugins/js/tracking.js"></script>
+	<script>
+		function btnPrev() {
+			// window.location.href = "modulo.html";
+			//window.location.href = "modulo.php?course_code=<?= $course_code; ?>";
+			const path = location.pathname.split("/").slice(0, -1).join("/");
+			window.location.href = "../leccion/index.html";
+			// window.location.href = path.replace("evaluacion", "compromiso") + "/compromiso.html";
+		};
+
+		//function bar menu
+		//function bar menu
+
+		$(".fa-bars").on("click", function () {
+
+			$(".opMenu").toggle();
+
+		});
+
+
+
+		//function bar menu
+
+		$(".fa-bars").on("click", function () {
+
+			event.stopPropagation();
+
+			$(".headerOpc").addClass('act');
+
+		});
+
+		$('html, .fa-times').click(function () {
+
+			$(".headerOpc").removeClass('act');
+
+		});
+
+		$('.headerOpc').click(function () {
+
+			event.stopPropagation();
+
+		});
+	</script>
+
+</body>
+
+</html>

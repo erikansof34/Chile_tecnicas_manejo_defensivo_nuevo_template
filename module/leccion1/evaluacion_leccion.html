@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- library bootstrap v.5.0.2 -->
+    <link rel="stylesheet" type="text/css" href="../../plugins/libs/bootstrap/css/bootstrap.css">
+
+    <!-- library cascading style sheets -->
+    <link rel="stylesheet" type="text/css" href="../../plugins/css/sofactia.css">
+
+    <!--Montserrat-->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!--Libreria iconos-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Estilos del widget -->
+    <link rel="stylesheet" href="../../plugins/libs/assetsWidget/css/widget.css">
+
+</head>
+
+<body class="sf-scroll-y-hidden sf-bg-dark">
+    <!-- Info usuario -->
+    <input id='course_code' value="<?php echo $course_code;?>" hidden>
+    <input id='module_id' value="<?php echo $module_id;?>" hidden>
+    <input id='unique_course_id' value="<?php echo $unique_course_id ;?>" hidden>
+    <input id='emp_unique_id' value="<?php echo $_SESSION['employee_data']['emp_unique_id'] ;?>" hidden>
+    <!-- Header con el logo -->
+
+    <!-- content fluid -->
+    <div class="container-fluid pb-5 pb-md-0 px-0 px-md-5 py-0 text-center">
+        <div class="row d-flex justify-content-center align-items-center sf-min-h-vh100 mx-5">
+            <div class="col-lg-5 col-md-12 mt-5 my-md-0">
+                <div class="ml-4">
+                    <img src="../leccion1/gif/avatar_mujer_cuaderno.gif" alt="avatar"
+                        class="mx-auto sf-img-40 sf-img-md-80 sf-img-sm-30">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-12 mt-4 my-md-0">
+                <div class="sf-mr-xl-p10 mr-md-5 mr-4 sf-lh-xs">
+                    <h1 class="sf-txt-1xl-700 sf-text-white">Evaluación <span class="sf-text-purple">Lección 1</span>
+                    </h1>
+                    <div class="sf-bg-white border sf-bc-dark2 p-4 sf-br-r4 sf-m-r6">
+                        <p><strong>Antes de continuar…</strong></p>
+                        <p>¡Veamos qué tanto has aprendido… !
+                            <br><br>
+                            Te invitamos a presentar una breve evaluación, para identificar si necesitas repasar
+                            algún contenido de la lección.
+                            ¡Mucho éxito !
+                            <br><br>
+                        </p>
+
+                        <button class="sf-btn sf-btn-purple" id="btnEvaluacion">
+                            <i class="fas fa-clipboard"></i> Presentar Evaluación
+                        </button>
+                        <!-- <button class="sf-btn sf-btn-purple" onclick="presentarEvaluacion()">
+                            <i class="fas fa-clipboard"></i> Presentar Evaluación
+                        </button> -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn-navigation-container glass-back">
+        <button id="pagIndex" class="btn-navigation btn-navigation--prev" onclick="btnPrev()">
+            <i class="fas fa-angle-left"></i> <span>Anterior</span>
+        </button>
+        <!-- <button id="next" class="btn-navigation btn-navigation--next" onclick="btnNext()">
+            <span>Siguiente</span> <i class="fas fa-angle-right"></i>
+        </button> -->
+    </div>
+
+    <!--library javascript-->
+    <script src="../../plugins/libs/jquery-3.3.1.js"></script>
+    <!-- Script del Widget -->
+    <script src="../../plugins/libs/assetsWidget/js/widget.js"></script>
+    <!-- LMS SCORM Integration -->
+    <script src="lms.js"></script>
+
+    <script>
+        function btnPrev() {
+            // window.location.href = "modulo.html";
+            //window.location.href = "modulo.php?course_code=<?= $course_code; ?>";
+            const path = location.pathname.split("/").slice(0, -1).join("/");
+            window.location.href = "./resumen_leccion.html";
+            // window.location.href = path.replace("evaluacion", "compromiso") + "/compromiso.html";
+        };
+
+        function btnNext() {
+            // window.location.href = "modulo.html";
+            //window.location.href = "modulo.php?course_code=<?= $course_code; ?>";
+            const path = location.pathname.split("/").slice(0, -1).join("/");
+            window.location.href = "./../leccion2/index.html";
+            // window.location.href = path.replace("evaluacion", "compromiso") + "/compromiso.html";
+        };
+
+        document.getElementById('btnEvaluacion').addEventListener('click', function () {
+            window.location.href = '../leccion2/index.html';
+        });
+
+        function isSCORMEnvironment() {
+            return (typeof window.parent.API !== 'undefined') ||
+                (typeof window.API !== 'undefined') ||
+                (window !== window.top);
+        }
+
+        // FUNCIÓN DE REDIRECCIONAMIENTO COMENTADA - Para uso futuro
+        /*
+        function redireccionamiento() {
+            const url = 'https://otec.sofactia.pro/mod/quiz/view.php?id=21';
+            if (isSCORMEnvironment()) {
+                // Estamos en SCORM, cerrar y redirigir
+                try {
+                    // Intentar cerrar el SCORM primero
+                    if (typeof window.parent.API !== 'undefined') {
+                        window.parent.API.LMSFinish();
+                    }
+                    if (typeof window.API !== 'undefined') {
+                        window.API.LMSFinish();
+                    }
+
+                    // Redirigir la ventana principal
+                    window.top.location.href = url;
+                } catch (e) {
+                    console.log('Error al cerrar SCORM:', e);
+                    window.top.location.href = url;
+                }
+            } else {
+                // No es SCORM, redirigir normalmente
+                window.location.href = url;
+            }
+        }
+        */
+
+
+        function mostrarPaginaFinal() {
+            document.body.innerHTML = `
+                <div style="
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    min-height: 100vh;
+                    background-color: #f8f9fa;
+                    font-family: 'Montserrat', sans-serif;
+                    text-align: center;
+                    padding: 20px;
+                ">
+                    <div style="
+                        background: white;
+                        padding: 40px;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                        max-width: 700px;
+                    ">
+                        <i class="fas fa-check-circle" style="
+                            font-size: 60px;
+                            color: #28a745;
+                            margin-bottom: 20px;
+                        "></i>
+                        <h2 style="
+                            color: #333;
+                            margin-bottom: 20px;
+                            font-weight: 700;
+                        ">¡Muy bien! 🎉 <br> Has finalizado la Lección 1.</h2>
+                        <p style="
+                            color: #666;
+                            font-size: 16px;
+                            line-height: 1.5;
+                            margin-bottom: 0;
+                        ">Ahora continúa con la <strong>Evaluación Formativa</strong> para poner a prueba lo que aprendiste.
+                        <br><br>
+                        👉 Cierra esta ventana y sigue con el proceso.</p>
+                        <br>
+                        <img src="../leccion1/img/leccion1.webp" class="mx-auto " alt="Guía">
+                    </div>
+                </div>
+            `;
+        }
+
+        function presentarEvaluacion() {
+            try {
+                const api = findAPI();
+                if (api) {
+                    // Inicializar SCORM si no está inicializado
+                    const initResult = api.LMSInitialize('');
+                    console.log('Inicialización SCORM:', initResult);
+
+                    // Marcar la lección como completada
+                    const result1 = api.LMSSetValue('cmi.core.lesson_status', 'passed');
+                    const result2 = api.LMSSetValue('cmi.core.score.raw', '100');
+                    const result3 = api.LMSSetValue('cmi.core.score.min', '0');
+                    const result4 = api.LMSSetValue('cmi.core.score.max', '100');
+
+                    const commitResult = api.LMSCommit('');
+
+                    console.log('Resultados SCORM:', { result1, result2, result3, result4, commitResult });
+
+                    // Verificar errores
+                    const errorCode = api.LMSGetLastError();
+                    const errorString = api.LMSGetErrorString(errorCode);
+                    console.log('Error SCORM:', errorCode, errorString);
+
+                    // Verificar si se guardó correctamente
+                    const savedStatus = api.LMSGetValue('cmi.core.lesson_status');
+                    const savedScore = api.LMSGetValue('cmi.core.score.raw');
+                    console.log('Estado guardado:', savedStatus, 'Puntuación guardada:', savedScore);
+
+                    // Finalizar SCORM
+                    const finishResult = api.LMSFinish('');
+                    console.log('Finalización SCORM:', finishResult);
+
+                    // Mostrar página final
+                    mostrarPaginaFinal();
+
+                    // REDIRECCIONAMIENTO COMENTADO - Para uso futuro
+                    /*
+                    setTimeout(() => {
+                        if (window.opener) {
+                            window.close();
+                        } else {
+                            redireccionamiento();
+                        }
+                    }, 1000);
+                    */
+
+                } else {
+                    console.log('API SCORM no disponible - funcionando en modo standalone');
+
+                    // Mostrar página final incluso sin SCORM
+                    mostrarPaginaFinal();
+
+                    // REDIRECCIONAMIENTO COMENTADO - Para uso futuro
+                    /*
+                    setTimeout(() => {
+                        if (window.opener) {
+                            window.close();
+                        } else {
+                            redireccionamiento();
+                        }
+                    }, 2000);
+                    */
+                }
+            } catch (error) {
+                console.error('Error al comunicarse con SCORM:', error);
+
+                // Mostrar página final incluso con error
+                mostrarPaginaFinal();
+
+                // REDIRECCIONAMIENTO COMENTADO - Para uso futuro
+                /*
+                setTimeout(() => {
+                    if (window.opener) {
+                        window.close();
+                    } else {
+                        redireccionamiento();
+                    }
+                }, 2000);
+                */
+            }
+        }
+
+        // Función auxiliar para encontrar la API SCORM
+        function findAPI() {
+            let api = null;
+            let win = window;
+
+            // Buscar en la ventana actual y ventanas padre
+            while (win && !api) {
+                if (win.API) {
+                    api = win.API;
+                    break;
+                }
+                if (win.API_1484_11) {
+                    api = win.API_1484_11;
+                    break;
+                }
+                if (win.parent && win.parent !== win) {
+                    win = win.parent;
+                } else {
+                    break;
+                }
+            }
+
+            // Si no se encuentra en ventanas padre, buscar en opener
+            if (!api && window.opener) {
+                win = window.opener;
+                while (win && !api) {
+                    if (win.API) {
+                        api = win.API;
+                        break;
+                    }
+                    if (win.API_1484_11) {
+                        api = win.API_1484_11;
+                        break;
+                    }
+                    if (win.parent && win.parent !== win) {
+                        win = win.parent;
+                    } else {
+                        break;
+                    }
+                }
+            }
+
+            return api;
+        }
+    </script>
+
+</body>
+
+</html>

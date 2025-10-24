@@ -1,0 +1,388 @@
+/* widget.css */
+/* Estilos para el menú del widget */
+/* Estilos para el menú del widget */
+#widget-menu {
+    max-height: 80vh;
+    overflow-y: auto;
+    background-color: #FFFFFF;
+    border: 0.0625rem solid #DDD;
+    border-radius: 0.3125rem;
+    padding: 0;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+    position: fixed;
+    z-index: 2147483647;
+    /* Máximo valor posible de z-index */
+}
+
+/* Estilos para el botón del widget */
+#accessibility-widget {
+    position: fixed;
+    z-index: 2147483647 !important;
+    /* Máximo valor posible de z-index */
+    transition: opacity 0.3s ease;
+}
+
+/* En desktop: parte inferior derecha (cambiado de izquierda a derecha) */
+#accessibility-widget {
+    bottom: 20px;
+    right: 20px;
+    left: auto;
+    top: auto;
+}
+
+/* En mobile: parte superior izquierda de .contentModule */
+@media (max-width: 768px) {
+    #accessibility-widget {
+        bottom: auto;
+        left: 20px;
+        right: auto;
+        top: 20px;
+    }
+}
+
+#accessibility-widget button {
+    background-color: #007BFF;
+    color: #FFFFFF;
+    border: none;
+    padding: 4px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    transition: all 0.3s ease;
+}
+
+#accessibility-widget button i {
+    font-size: 22px;
+}
+
+/* Estilos para el encabezado del menú */
+#widget-menu>div:first-child {
+    background-color: #007BFF;
+    color: #FFFFFF;
+    padding: 0.625rem;
+    border-radius: 0.3125rem 0.3125rem 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+/* Estilos para los encabezados de las categorías */
+.category-header {
+    padding: 0.625rem;
+    background-color: #F5F5F5;
+    border-bottom: 0.0625rem solid #DDD;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-radius: 0.3125rem;
+    margin: 0.3125rem;
+}
+
+.category-header:hover {
+    background-color: #E0E0E0;
+}
+
+/* Estilos para las opciones de las categorías */
+.category-options {
+    padding: 0.625rem;
+    display: none;
+}
+
+/* Contenedor de opciones */
+.option-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.text-container {
+    display: flex;
+    align-items: center;
+}
+
+.text-container i {
+    margin-right: 10px;
+    color: #777;
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Estilos para los botones de acción (no toggle) */
+.action-button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.action-button:hover {
+    background-color: #0069d9;
+    transform: scale(1.1);
+}
+
+/* Estilos para el switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked+.slider {
+    background-color: #007BFF;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #007BFF;
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+/* Slider redondeado */
+.slider.round {
+    border-radius: 24px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Estilos para los botones de control */
+.control-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+    margin: 0.625rem 0;
+    padding: 0 0.625rem;
+}
+
+.control-buttons button {
+    background-color: transparent;
+    border: none;
+    color: #007BFF;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 0.3125rem;
+    transition: all 0.2s ease;
+}
+
+/* Estilo para el cursor personalizado */
+#custom-cursor {
+    width: 2.5rem;
+    height: 2.5rem;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Estilo para enlaces resaltados */
+.highlighted-link {
+    background-color: #FFFF00 !important;
+    padding: 0.125rem !important;
+    border-radius: 0.1875rem !important;
+}
+
+/* Estilo para encabezados resaltados */
+.highlighted-heading {
+    background-color: #FFFF00 !important;
+    padding: 0.3125rem !important;
+    border-radius: 0.3125rem !important;
+}
+
+/* Estilos para la accesibilidad visual */
+.high-contrast {
+    background-color: #000 !important;
+    color: #FFF !important;
+}
+
+.low-contrast {
+    opacity: 0.8;
+}
+
+.negative {
+    filter: invert(100%);
+}
+
+.grayscale {
+    filter: grayscale(100%);
+}
+
+.legible-font {
+    font-family: 'Arial', sans-serif;
+}
+
+.desaturated {
+    filter: saturate(0.5);
+}
+
+.no-animations * {
+    animation: none !important;
+    transition: none !important;
+}
+
+.focus-mode {
+    background-color: #FFF !important;
+    color: #000 !important;
+}
+
+.focus-mode img,
+.focus-mode video,
+.focus-mode audio {
+    display: none;
+}
+
+/* ESTILOS PARA MÓVIL (max-width: 48rem) */
+@media (max-width: 48rem) {
+    #widget-menu {
+        width: 90vw;
+        max-height: 70vh;
+    }
+
+    .option-container {
+        padding: 8px 5px;
+    }
+
+    .text-container span {
+        font-size: 14px;
+    }
+
+    .text-container i {
+        font-size: 14px;
+    }
+
+    .switch {
+        width: 40px;
+        height: 20px;
+    }
+
+    .slider:before {
+        height: 14px;
+        width: 14px;
+        left: 3px;
+        bottom: 3px;
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(20px);
+    }
+
+    #accessibility-widget button {
+        padding: 0.75rem;
+    }
+
+    #accessibility-widget button i {
+        font-size: 1.625rem;
+    }
+
+    .category-header {
+        padding: 0.5rem 0.375rem;
+        font-size: 0.875rem;
+    }
+
+    .menu-header span {
+        font-size: 0.875rem;
+    }
+
+    .control-buttons {
+        padding: 0 0.3125rem;
+        margin: 0.5rem 0;
+    }
+}
+
+/* Ajustes adicionales para pantallas muy pequeñas */
+@media (max-width: 30rem) {
+    .text-container span {
+        font-size: 12px;
+    }
+
+    .text-container i {
+        font-size: 12px;
+    }
+
+    .switch {
+        width: 36px;
+        height: 18px;
+    }
+
+    .slider:before {
+        height: 12px;
+        width: 12px;
+        left: 3px;
+        bottom: 3px;
+    }
+
+    input:checked+.slider:before {
+        transform: translateX(18px);
+    }
+
+    .menu-header span,
+    .category-header span {
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 22.5rem) {
+    .text-container span {
+        font-size: 11px;
+    }
+
+    .category-header {
+        padding: 0.375rem 0.25rem;
+    }
+}
+
+/* Fuentes para dislexia */
+@font-face {
+    font-family: 'OpenDyslexic';
+    src: url('assetsWidget/OpenDyslexic-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}

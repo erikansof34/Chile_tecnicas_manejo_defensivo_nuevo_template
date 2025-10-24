@@ -1,0 +1,245 @@
+.multi-select-feedback-success {
+  background: #32a852;
+  color: #fff;
+  border-radius: 0.7rem;
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  font-size: 1.05rem;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(50, 168, 82, 0.07);
+}
+
+.multi-select-feedback-error {
+  background: #e63946;
+  color: #fff;
+  border-radius: 0.7rem;
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  font-size: 1.05rem;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(230, 57, 70, 0.07);
+}
+
+.multi-select-feedback-warning {
+  background: #f9c74f;
+  color: #222;
+  border-radius: 0.7rem;
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  font-size: 1.05rem;
+  display: inline-block;
+  box-shadow: 0 2px 8px rgba(249, 199, 79, 0.07);
+}
+
+.card-feedback,
+.multi-select-feedback-success,
+.multi-select-feedback-error,
+.multi-select-feedback-warning {
+  font-weight: normal !important;
+}
+
+
+.preguntas_01 .ctItem {
+  min-width: 100%;
+  max-width: 100%;
+  text-align: left;
+}
+
+.preguntas_01 .ctItem>div p {
+  background: #ebebeb;
+  color: #8f8f8f;
+  padding: 10px 10px 10px 15px;
+  border-radius: 5px;
+  margin: 8px 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .2s ease;
+  position: relative;
+}
+
+.preguntas_01 .ctItem>div p.true {
+  background: #4caf50;
+  color: #fff;
+}
+
+.preguntas_01 .ctItem>div p.false {
+  background: #f44336;
+  color: #fff;
+}
+
+/* Agregar al final del archivo: */
+
+.opciones-pregunta .opcion-respuesta {
+  background: #ebebeb;
+  color: #8f8f8f;
+  padding: 10px 10px 10px 15px;
+  border-radius: 5px;
+  margin: 8px 0;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.opciones-pregunta .opcion-respuesta:hover {
+  background: #d0d0d0;
+}
+
+.opciones-pregunta .opcion-respuesta.act {
+  background: #08244c;
+  color: #fff;
+  transform: scale(1.01);
+}
+
+
+.resultado {
+  background: #fcfcfc;
+  min-width: 100%;
+  max-width: 100%;
+  text-align: center;
+}
+
+
+.botons {
+  padding: 10px 5px;
+  height: 31px;
+  width: 11rem;
+  line-height: 1;
+}
+
+@media (min-width: 1200px) {
+  .preguntas_01 .ctItem {
+    min-width: 100%;
+    max-width: 100%;
+    text-align: left;
+  }
+
+
+  .botons {
+    padding: 10px 5px;
+    height: 45px;
+    width: 95%;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1400px) {
+  .preguntas_01 .ctItem {
+    min-width: 100%;
+    max-width: 100%;
+    text-align: left;
+  }
+
+
+  .botons {
+    padding: 10px 5px;
+    height: 31px;
+    width: 95%;
+    line-height: 1;
+  }
+}
+
+
+
+/* tabs  */
+
+.cmp_tabs {
+  display: flex;
+  border: solid 2px var(--fourth);
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.24);
+  margin-top: 2%;
+  margin-bottom: 1.5%;
+  flex-direction: column;
+
+  border-radius: .5rem;
+}
+
+.cmp_tab {
+  width: 100%;
+  overflow-x: auto;
+  padding: 10px;
+  border-bottom: 2px solid #ccc;
+}
+
+.cmp_tab ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.cmp_tab li {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
+  padding: 2px;
+  background: white;
+  min-height: 2.5rem;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.cmp_tab li.cmp_active {
+  background-color: #0F172A;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.cmp_tab img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+.cmp_contenido {
+  flex: 1;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  border-radius: .5rem;
+}
+
+.cmp_img {
+  max-width: 63%;
+  margin-bottom: 10px;
+  border-radius: .5rem
+}
+
+.cmp_desp {
+  text-align: justify;
+  background: #e9e9e9;
+  padding: 8px;
+  border-radius: 10px;
+  max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .cmp_img {
+    max-width: 100%;
+  }
+
+  .descripcion-sld17_estres {
+    font-size: 16px;
+    width: 100%;
+  }
+
+
+  .cmp_tab ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 3fr));
+    gap: .5rem;
+  }
+}

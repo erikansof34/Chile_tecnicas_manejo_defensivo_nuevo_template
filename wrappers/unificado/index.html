@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso Completo - Orientación y Prevención de Riesgos DS 44</title>
+    <link rel="stylesheet" href="plugins/css/style.css">
+    <link rel="stylesheet" href="plugins/libs/bootstrap/css/bootstrap.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .course-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .course-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 40px;
+        }
+        
+        .course-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .course-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .lesson-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+        
+        .lesson-card h3 {
+            color: #333;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .lesson-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .lesson-card .btn {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .lesson-card .btn:hover {
+            background: linear-gradient(45deg, #764ba2, #667eea);
+            transform: scale(1.05);
+            color: white;
+            text-decoration: none;
+        }
+        
+        .other-modules {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+        
+        .other-modules h3 {
+            color: white;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .module-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .module-links a {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .module-links a:hover {
+            background: rgba(255,255,255,0.3);
+            color: white;
+            text-decoration: none;
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .course-header h1 {
+                font-size: 2rem;
+            }
+            
+            .lessons-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .course-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="course-container">
+        <div class="course-header">
+            <h1>Orientación y Prevención de Riesgos DS 44</h1>
+            <p>Curso Completo de Seguridad y Salud en el Trabajo</p>
+        </div>
+        
+        <div class="lessons-grid">
+            <div class="lesson-card" onclick="openLesson('leccion1')">
+                <h3>Lección 1</h3>
+                <p>Fundamentos de la Seguridad y Salud en el Trabajo. Introducción a los conceptos básicos y marco normativo.</p>
+                <a href="#" class="btn">Iniciar Lección 1</a>
+            </div>
+            
+            <div class="lesson-card" onclick="openLesson('leccion2')">
+                <h3>Lección 2</h3>
+                <p>Identificación y Evaluación de Riesgos. Metodologías para detectar y analizar los riesgos laborales.</p>
+                <a href="#" class="btn">Iniciar Lección 2</a>
+            </div>
+            
+            <div class="lesson-card" onclick="openLesson('leccion3')">
+                <h3>Lección 3</h3>
+                <p>Protocolos y Medidas Preventivas. Implementación de controles y protocolos de seguridad.</p>
+                <a href="#" class="btn">Iniciar Lección 3</a>
+            </div>
+        </div>
+        
+        <div class="other-modules">
+            <h3>Otros Módulos del Curso</h3>
+            <div class="module-links">
+                <a href="module/inicio/inicio.html">Inicio</a>
+                <a href="module/compromiso/compromiso.html">Compromiso</a>
+                <a href="module/evaluacion/quiz.html">Evaluación Final</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="plugins/libs/jquery-3.3.1.js"></script>
+    <script>
+        function openLesson(lessonId) {
+            // Abrir la lección en una nueva ventana o en el mismo frame
+            const lessonUrl = `module/${lessonId}/index.html`;
+            window.location.href = lessonUrl;
+        }
+        
+        // Configuración SCORM básica para el curso unificado
+        window.API = {
+            LMSInitialize: function(param) {
+                console.log('SCORM: LMSInitialize called with:', param);
+                return "true";
+            },
+            LMSFinish: function(param) {
+                console.log('SCORM: LMSFinish called with:', param);
+                return "true";
+            },
+            LMSGetValue: function(element) {
+                console.log('SCORM: LMSGetValue called for:', element);
+                switch(element) {
+                    case "cmi.core.lesson_status":
+                        return "not attempted";
+                    case "cmi.core.student_id":
+                        return "student_001";
+                    case "cmi.core.student_name":
+                        return "Estudiante";
+                    default:
+                        return "";
+                }
+            },
+            LMSSetValue: function(element, value) {
+                console.log('SCORM: LMSSetValue called:', element, '=', value);
+                return "true";
+            },
+            LMSCommit: function(param) {
+                console.log('SCORM: LMSCommit called with:', param);
+                return "true";
+            },
+            LMSGetLastError: function() {
+                return "0";
+            },
+            LMSGetErrorString: function(errorCode) {
+                return "No error";
+            },
+            LMSGetDiagnostic: function(errorCode) {
+                return "No error";
+            }
+        };
+    </script>
+</body>
+</html>
+

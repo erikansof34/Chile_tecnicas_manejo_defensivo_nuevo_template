@@ -1,0 +1,54 @@
+.iframe-actividad-lumi {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10.5;
+  border: none;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+}
+
+.sf-btn-blue {
+  border: 1px solid #0b3d5c;
+}
+
+.sf-max-w-p80 {
+  max-width: 80%;
+}
+
+@media (min-width: 768px) {
+  .w-lg-75 {
+    width: 75% !important;
+  }
+
+  .w-lg-65 {
+    width: 65% !important;
+  }
+}
+
+.ocultar {
+  display: none !important;
+}
+
+@media (min-width: 1400px) {
+  .mx-2xl-0 {
+    margin-right: 3rem !important;
+    margin-left: 3rem !important;
+  }
+}
+
+@media (min-width: 1400px) {
+  .mx-2xl-0 {
+    margin-right: 3rem !important;
+    margin-left: 3rem !important;
+  }
+}
+
+
+/* Puedes poner esto en style.css */

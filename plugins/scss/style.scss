@@ -1,0 +1,140 @@
+@use './base';
+@use './variables' as *;
+@use './components' as *;
+@use './custom.scss';
+// @use './resposive' as *;
+
+// ------------------------------- 
+// Index 
+// ------------------------------- 
+.container-1 {
+  position: absolute;
+  width: 90%;
+  z-index: 2;
+  max-width: 900px;
+  bottom: 24%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  img {
+    padding-top: 0%;
+    padding-bottom: 5%;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    top: 45%;
+    bottom: 0;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    top: 45%;
+    bottom: 0;
+
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    position: absolute;
+    width: 90%;
+    margin: auto;
+    bottom: 0;
+    
+    img {
+      padding-top: 5%;
+      padding-bottom: .5%;
+      margin: 0 auto;
+    }
+  }
+}
+
+.fullscreen-cover {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+
+  @media (min-width: $breakpoint-xl) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  #overlayVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(40%);
+
+    @media (min-width: $breakpoint-xl) {
+      position: absolute;
+      filter: brightness(40%);
+      object-fit: cover;
+    }
+  }
+}
+
+// video {
+//     position: fixed;
+//     background: $black3;
+//     width: 100%;
+//     height: 100%;
+// }
+
+.tpl-bg-cover {
+  position: absolute;
+  inset: 0;
+  /* atajo para top: 0; right: 0; bottom: 0; left: 0 */
+  background-image: url();
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  opacity: 0.55;
+}
+
+// ------------------------------- 
+// Inicio 
+// ------------------------------- 
+.container-2 {
+  max-width: 100%;
+  margin: auto;
+  padding: 20px;
+  font-family: $fm-main;
+}
+
+.sf-scroll-y-hidden {
+  overflow-x: hidden;
+
+  @media (min-width: $breakpoint-lg) {
+    overflow-y: hidden;
+  }
+
+  @media (min-width: $breakpoint-xl) {
+    overflow-x: hidden;
+  }
+
+  @media (min-width: $breakpoint-xl) and (min-height: 600px) {
+    overflow-y: hidden;
+  }
+}
+
+.pdf-viewer {
+  width: 100%;
+  height: 450px;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.sf-line-1 {
+  white-space: nowrap;   /* Evita saltos de línea */
+  overflow: hidden;      /* Oculta lo que no quepa */
+  text-overflow: ellipsis; /* Opcional: pone "..." si el texto es muy largo */
+}

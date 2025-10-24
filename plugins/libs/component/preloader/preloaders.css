@@ -1,0 +1,451 @@
+/* ----------------------------------------------------------------
+	Preloaders CSS - Canvas Framework
+	
+	Custom Preloader Styles for Canvas HTML5 Template
+	Multiple animation types and variations
+-----------------------------------------------------------------*/
+
+/* Base Preloader Container */
+.preloader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #fff;
+	z-index: 99999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	opacity: 1;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.preloader.fade-out {
+	opacity: 0;
+	pointer-events: none;
+}
+
+.preloader.dark {
+	background: #1c1c1c;
+}
+
+/* ================================================================
+   SPINNER TIPO 1 - ROTATING DOTS
+================================================================ */
+.spinner-dots {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+
+.spinner-dots div {
+	position: absolute;
+	top: 33px;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	background: #1976d2;
+	animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.spinner-dots div:nth-child(1) {
+	left: 8px;
+	animation: spinner-dots1 0.6s infinite;
+}
+
+.spinner-dots div:nth-child(2) {
+	left: 8px;
+	animation: spinner-dots2 0.6s infinite;
+}
+
+.spinner-dots div:nth-child(3) {
+	left: 32px;
+	animation: spinner-dots2 0.6s infinite;
+}
+
+.spinner-dots div:nth-child(4) {
+	left: 56px;
+	animation: spinner-dots3 0.6s infinite;
+}
+
+@keyframes spinner-dots1 {
+	0% { transform: scale(0); }
+	100% { transform: scale(1); }
+}
+
+@keyframes spinner-dots3 {
+	0% { transform: scale(1); }
+	100% { transform: scale(0); }
+}
+
+@keyframes spinner-dots2 {
+	0% { transform: translate(0, 0); }
+	100% { transform: translate(24px, 0); }
+}
+
+/* ================================================================
+   SPINNER TIPO 2 - CIRCULAR RINGS
+================================================================ */
+.spinner-ring {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+
+.spinner-ring div {
+	box-sizing: border-box;
+	display: block;
+	position: absolute;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border: 8px solid #1976d2;
+	border-radius: 50%;
+	animation: spinner-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+	border-color: #1976d2 transparent transparent transparent;
+}
+
+.spinner-ring div:nth-child(1) { animation-delay: -0.45s; }
+.spinner-ring div:nth-child(2) { animation-delay: -0.3s; }
+.spinner-ring div:nth-child(3) { animation-delay: -0.15s; }
+
+@keyframes spinner-ring {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* ================================================================
+   SPINNER TIPO 3 - PULSE SCALE
+================================================================ */
+.spinner-pulse {
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background-color: #1976d2;
+	border-radius: 100%;  
+	animation: spinner-scale 1.0s infinite ease-in-out;
+}
+
+@keyframes spinner-scale {
+	0% { 
+		transform: scale(0);
+	} 100% {
+		transform: scale(1.0);
+		opacity: 0;
+	}
+}
+
+/* ================================================================
+   SPINNER TIPO 4 - WAVE BARS
+================================================================ */
+.spinner-wave {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+
+.spinner-wave div {
+	display: inline-block;
+	position: absolute;
+	left: 8px;
+	width: 16px;
+	background: #1976d2;
+	animation: spinner-wave 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+
+.spinner-wave div:nth-child(1) {
+	left: 8px;
+	animation-delay: -0.24s;
+}
+
+.spinner-wave div:nth-child(2) {
+	left: 32px;
+	animation-delay: -0.12s;
+}
+
+.spinner-wave div:nth-child(3) {
+	left: 56px;
+	animation-delay: 0;
+}
+
+@keyframes spinner-wave {
+	0% {
+		top: 8px;
+		height: 64px;
+	}
+	50%, 100% {
+		top: 24px;
+		height: 32px;
+	}
+}
+
+/* ================================================================
+   SPINNER TIPO 5 - BOUNCING BALLS
+================================================================ */
+.spinner-bounce {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+}
+
+.spinner-bounce div {
+	position: absolute;
+	top: 33px;
+	width: 13px;
+	height: 13px;
+	border-radius: 50%;
+	background: #1976d2;
+	animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+
+.spinner-bounce div:nth-child(1) {
+	left: 8px;
+	animation: spinner-bounce1 0.6s infinite;
+}
+
+.spinner-bounce div:nth-child(2) {
+	left: 8px;
+	animation: spinner-bounce2 0.6s infinite;
+}
+
+.spinner-bounce div:nth-child(3) {
+	left: 32px;
+	animation: spinner-bounce2 0.6s infinite;
+}
+
+.spinner-bounce div:nth-child(4) {
+	left: 56px;
+	animation: spinner-bounce3 0.6s infinite;
+}
+
+@keyframes spinner-bounce1 {
+	0% { transform: scale(0); }
+	100% { transform: scale(1); }
+}
+
+@keyframes spinner-bounce3 {
+	0% { transform: scale(1); }
+	100% { transform: scale(0); }
+}
+
+@keyframes spinner-bounce2 {
+	0% { transform: translate(0, 0); }
+	100% { transform: translate(24px, 0); }
+}
+
+/* ================================================================
+   SPINNER TIPO 6 - CSS LOGO STYLE
+================================================================ */
+.spinner-logo {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+	border-radius: 50%;
+	border: 4px solid #f3f3f3;
+	border-top: 4px solid #1976d2;
+	animation: spinner-logo-rotate 2s linear infinite;
+}
+
+@keyframes spinner-logo-rotate {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* ================================================================
+   SPINNER TIPO 7 - DUAL RING
+================================================================ */
+.spinner-dual-ring {
+	display: inline-block;
+	width: 80px;
+	height: 80px;
+}
+
+.spinner-dual-ring:after {
+	content: " ";
+	display: block;
+	width: 64px;
+	height: 64px;
+	margin: 8px;
+	border-radius: 50%;
+	border: 6px solid #1976d2;
+	border-color: #1976d2 transparent #1976d2 transparent;
+	animation: spinner-dual-ring 1.2s linear infinite;
+}
+
+@keyframes spinner-dual-ring {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
+}
+
+/* ================================================================
+   SPINNER TIPO 8 - HEART BEAT
+================================================================ */
+.spinner-heart {
+	display: inline-block;
+	position: relative;
+	width: 80px;
+	height: 80px;
+	transform: rotate(45deg);
+	transform-origin: 40px 40px;
+}
+
+.spinner-heart div {
+	top: 32px;
+	left: 32px;
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	background: #1976d2;
+	animation: spinner-heart 1.2s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.spinner-heart div:after,
+.spinner-heart div:before {
+	content: ' ';
+	position: absolute;
+	display: block;
+	width: 32px;
+	height: 32px;
+	background: #1976d2;
+}
+
+.spinner-heart div:before {
+	left: -24px;
+	border-radius: 50% 0 0 50%;
+}
+
+.spinner-heart div:after {
+	top: -24px;
+	border-radius: 50% 50% 0 0;
+}
+
+@keyframes spinner-heart {
+	0% { transform: scale(0.95); }
+	5% { transform: scale(1.1); }
+	39% { transform: scale(0.85); }
+	45% { transform: scale(1); }
+	60% { transform: scale(0.95); }
+	100% { transform: scale(0.9); }
+}
+
+/* ================================================================
+   SPINNER PERSONALIZADO CON TEXTO
+================================================================ */
+.spinner-with-text {
+	text-align: center;
+}
+
+.spinner-with-text .spinner {
+	margin-bottom: 20px;
+}
+
+.spinner-with-text .loading-text {
+	font-size: 16px;
+	color: #666;
+	font-weight: 500;
+	letter-spacing: 1px;
+}
+
+.spinner-with-text.dark .loading-text {
+	color: #ccc;
+}
+
+/* ================================================================
+   SPINNER CON PROGRESO
+================================================================ */
+.spinner-progress {
+	text-align: center;
+}
+
+.spinner-progress .progress-bar {
+	width: 200px;
+	height: 4px;
+	background: #f0f0f0;
+	border-radius: 2px;
+	margin: 20px auto;
+	overflow: hidden;
+}
+
+.spinner-progress .progress-bar .progress-fill {
+	height: 100%;
+	background: #1976d2;
+	border-radius: 2px;
+	transition: width 0.3s ease;
+	width: 0%;
+}
+
+.spinner-progress .progress-text {
+	font-size: 14px;
+	color: #666;
+	margin-top: 10px;
+}
+
+/* ================================================================
+   VARIACIONES DE COLOR
+================================================================ */
+.preloader.color-primary .spinner-dots div,
+.preloader.color-primary .spinner-ring div,
+.preloader.color-primary .spinner-pulse,
+.preloader.color-primary .spinner-wave div,
+.preloader.color-primary .spinner-bounce div,
+.preloader.color-primary .spinner-logo,
+.preloader.color-primary .spinner-dual-ring:after,
+.preloader.color-primary .spinner-heart div {
+	background-color: #1976d2;
+	border-color: #1976d2;
+}
+
+.preloader.color-success .spinner-dots div,
+.preloader.color-success .spinner-ring div,
+.preloader.color-success .spinner-pulse,
+.preloader.color-success .spinner-wave div,
+.preloader.color-success .spinner-bounce div,
+.preloader.color-success .spinner-logo,
+.preloader.color-success .spinner-dual-ring:after,
+.preloader.color-success .spinner-heart div {
+	background-color: #28a745;
+	border-color: #28a745;
+}
+
+.preloader.color-warning .spinner-dots div,
+.preloader.color-warning .spinner-ring div,
+.preloader.color-warning .spinner-pulse,
+.preloader.color-warning .spinner-wave div,
+.preloader.color-warning .spinner-bounce div,
+.preloader.color-warning .spinner-logo,
+.preloader.color-warning .spinner-dual-ring:after,
+.preloader.color-warning .spinner-heart div {
+	background-color: #ffc107;
+	border-color: #ffc107;
+}
+
+.preloader.color-danger .spinner-dots div,
+.preloader.color-danger .spinner-ring div,
+.preloader.color-danger .spinner-pulse,
+.preloader.color-danger .spinner-wave div,
+.preloader.color-danger .spinner-bounce div,
+.preloader.color-danger .spinner-logo,
+.preloader.color-danger .spinner-dual-ring:after,
+.preloader.color-danger .spinner-heart div {
+	background-color: #dc3545;
+	border-color: #dc3545;
+}
+
+/* ================================================================
+   RESPONSIVE ADJUSTMENTS
+================================================================ */
+@media (max-width: 768px) {
+	.spinner-with-text .loading-text {
+		font-size: 14px;
+	}
+	
+	.spinner-progress .progress-bar {
+		width: 150px;
+	}
+}

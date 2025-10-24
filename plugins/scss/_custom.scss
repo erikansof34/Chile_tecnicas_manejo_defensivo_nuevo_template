@@ -1,0 +1,507 @@
+@use "sass:color";
+@use "sass:list";
+@use "sass:map"; 
+@use './variables' as *;
+
+// ===============================
+// Utilidades de tipografía
+// ===============================
+
+// Familias tipográficas principales
+@each $name, $family in $text-family {
+  .#{$prefijo}-fm-#{$name} {
+    font-family: $family;
+  }
+}
+
+// Generación de clases para weight de texto
+@each $name, $weight in $text-weights {
+  .#{$prefijo}-txt-#{$name} {
+    font-weight: $weight;
+  }
+}
+
+// Clases combinadas de tamaño y peso de texto
+@each $size-name, $font-size in $text-sizes {
+  .#{$prefijo}-txt-#{$size-name} {
+    font-size: $font-size;
+  }
+
+  @each $weight-name, $weight-value in $text-weights {
+    .#{$prefijo}-txt-#{$size-name}-#{$weight-name} {
+      font-size: $font-size !important;
+      font-weight: $weight-value !important;
+    }
+
+    @each $breakpoint, $breakpoint-value in $breakpoints {
+      @media (min-width: #{$breakpoint-value}) {
+        .#{$prefijo}-txt-#{$size-name}-#{$weight-name}-#{$breakpoint} {
+          font-size: $font-size !important;
+          font-weight: $weight-value !important;
+        }
+      }
+    }
+  }
+
+  @each $breakpoint, $breakpoint-value in $breakpoints {
+    @media (min-width: #{$breakpoint-value}) {
+      .#{$prefijo}-txt-#{$size-name}-#{$breakpoint} {
+        font-size: $font-size !important;
+      }
+    }
+  }
+}
+
+
+// Generación de clases para line-heights 
+@each $name, $height in $line-heights {
+  .#{$prefijo}-lh-#{$name} {
+    line-height: $height;
+  }
+}
+
+// ===============================
+// Utilidades de color
+// ===============================
+
+// Clases para color de texto dinámico
+@each $name, $color in $colors {
+  .#{$prefijo}-text-#{$name} {
+    color: $color;
+  }
+}
+
+// Clases para color de fondo dinámico
+@each $name, $color in $colors {
+  .#{$prefijo}-bg-#{$name} {
+    background-color: $color;
+  }
+}
+
+// ===============================
+// Mixin para generar utilidades de posición y tamaño
+// ===============================
+
+@each $key, $val in $percent-values {
+  .#{$prefijo}-top-#{$key} {
+    top: $val;
+  }
+
+  .#{$prefijo}-bottom-#{$key} {
+    bottom: $val;
+  }
+
+  .#{$prefijo}-left-#{$key} {
+    left: $val;
+  }
+
+  .#{$prefijo}-right-#{$key} {
+    right: $val;
+  }
+
+  .#{$prefijo}-width-#{$key} {
+    width: $val;
+  }
+
+  .#{$prefijo}-max-w-#{$key} {
+    max-width: $val;
+  }
+
+  .#{$prefijo}-max-h-#{$key} {
+    max-height: $val;
+  }
+
+  @each $breakpoint, $breakpoint-value in $breakpoints {
+    @media (min-width: #{$breakpoint-value}) {
+      .#{$prefijo}-top-#{$breakpoint}-#{$key} {
+        top: $val !important;
+      }
+
+      .#{$prefijo}-bottom-#{$breakpoint}-#{$key} {
+        bottom: $val !important;
+      }
+
+      .#{$prefijo}-left-#{$breakpoint}-#{$key} {
+        left: $val !important;
+      }
+
+      .#{$prefijo}-right-#{$breakpoint}-#{$key} {
+        right: $val !important;
+      }
+
+      .#{$prefijo}-width-#{$breakpoint}-#{$key} {
+        width: $val !important;
+      }
+
+      .#{$prefijo}-max-w-#{$breakpoint}-#{$key} {
+        max-width: $val !important;
+      }
+
+      .#{$prefijo}-max-h-#{$breakpoint}-#{$key} {
+        max-height: $val !important;
+      }
+    }
+  }
+}
+
+@each $key, $val in $rem-values {
+  .#{$prefijo}-top-#{$key} {
+    top: $val;
+  }
+
+  .#{$prefijo}-bottom-#{$key} {
+    bottom: $val;
+  }
+
+  .#{$prefijo}-left-#{$key} {
+    left: $val;
+  }
+
+  .#{$prefijo}-right-#{$key} {
+    right: $val;
+  }
+
+  .#{$prefijo}-width-#{$key} {
+    width: $val;
+  }
+
+  .#{$prefijo}-max-w-#{$key} {
+    max-width: $val;
+  }
+
+  .#{$prefijo}-max-h-#{$key} {
+    max-height: $val;
+  }
+}
+
+@each $key, $val in $px-values {
+  .#{$prefijo}-top-#{$key} {
+    top: $val !important;
+  }
+
+  .#{$prefijo}-bottom-#{$key} {
+    bottom: $val !important;
+  }
+
+  .#{$prefijo}-left-#{$key} {
+    left: $val !important;
+  }
+
+  .#{$prefijo}-right-#{$key} {
+    right: $val !important;
+  }
+
+  .#{$prefijo}-width-#{$key} {
+    width: $val !important;
+  }
+
+  .#{$prefijo}-max-w-#{$key} {
+    max-width: $val !important;
+  }
+
+  .#{$prefijo}-max-h-#{$key} {
+    max-height: $val !important;
+  }
+}
+
+@each $key, $val in $spacings-vh {
+  .#{$prefijo}-min-w-#{$key} {
+    min-width: $val;
+  }
+
+  .#{$prefijo}-min-h-#{$key} {
+    min-height: $val;
+  }
+
+  .#{$prefijo}-max-w-#{$key} {
+    max-width: $val;
+  }
+
+  .#{$prefijo}-max-h-#{$key} {
+    max-height: $val;
+  }
+
+  @each $breakpoint, $breakpoint-value in $breakpoints {
+    @media (min-width: #{$breakpoint-value}) {
+      .#{$prefijo}-min-h-#{$breakpoint}-#{$key} {
+        min-height: $val !important;
+      }
+
+      .#{$prefijo}-min-w-#{$breakpoint}-#{$key} {
+        min-width: $val !important;
+      }
+
+      .#{$prefijo}-max-h-#{$breakpoint}-#{$key} {
+        max-height: $val !important;
+      }
+
+      .#{$prefijo}-max-w-#{$breakpoint}-#{$key} {
+        max-width: $val !important;
+      }
+    }
+  }
+}
+
+@each $key, $val in $spacings-vw {
+  .#{$prefijo}-min-w-#{$key} {
+    min-width: $val;
+  }
+
+  .#{$prefijo}-max-w-#{$key} {
+    max-width: $val;
+  }
+
+  @each $breakpoint, $breakpoint-value in $breakpoints {
+    @media (min-width: #{$breakpoint-value}) {
+      .#{$prefijo}-min-w-#{$breakpoint}-#{$key} {
+        min-width: $val !important;
+      }
+
+      .#{$prefijo}-max-w-#{$breakpoint}-#{$key} {
+        max-width: $val !important;
+      }
+    }
+  }
+}
+
+// ===============================
+// Utilidades de border-radius
+// ===============================
+@each $key, $val in $radius {
+  .#{$prefijo}-br-#{$key} {
+    border-radius: $val;
+  }
+}
+
+@each $key, $val in $border-color {
+  .#{$prefijo}-bc-#{$key} {
+    border-color: $val;
+  }
+}
+
+// % + %
+@each $pct-key, $pct-val in $spacings-pct {
+  @each $pct2-key, $pct2-val in $spacings-pct {
+
+    // Padding eje Y
+    .#{$prefijo}-py-#{$pct-key}-#{$pct2-key} {
+      padding-top: $pct-val !important;
+      padding-bottom: $pct2-val !important;
+    }
+
+    // Padding eje X
+    .#{$prefijo}-px-#{$pct-key}-#{$pct2-key} {
+      padding-left: $pct-val !important;
+      padding-right: $pct2-val !important;
+    }
+
+    // Margin eje Y
+    .#{$prefijo}-my-#{$pct-key}-#{$pct2-key} {
+      margin-top: $pct-val !important;
+      margin-bottom: $pct2-val !important;
+    }
+
+    // Margin eje X
+    .#{$prefijo}-mx-#{$pct-key}-#{$pct2-key} {
+      margin-left: $pct-val !important;
+      margin-right: $pct2-val !important;
+    }
+  }
+}
+
+// rem + rem
+$generados: (
+);
+
+@each $rem-key, $rem-val in $spacings-rem {
+  @each $rem2-key, $rem2-val in $spacings-rem {
+    @if $rem-val ==$rem2-val {
+
+      // Evita duplicados usando solo una vez
+      @if list.index($generados, $rem-key)==null {
+        $generados: list.append($generados, $rem-key);
+
+        .#{$prefijo}-py-#{$rem-key} {
+          padding-top: $rem-val !important;
+          padding-bottom: $rem-val !important;
+        }
+
+        .#{$prefijo}-px-#{$rem-key} {
+          padding-left: $rem-val !important;
+          padding-right: $rem-val !important;
+        }
+
+        .#{$prefijo}-my-#{$rem-key} {
+          margin-top: $rem-val !important;
+          margin-bottom: $rem-val !important;
+        }
+
+        .#{$prefijo}-mx-#{$rem-key} {
+          margin-left: $rem-val !important;
+          margin-right: $rem-val !important;
+        }
+      }
+    }
+
+    @else {
+      .#{$prefijo}-py-#{$rem-key}-#{$rem2-key} {
+        padding-top: $rem-val !important;
+        padding-bottom: $rem2-val !important;
+      }
+
+      .#{$prefijo}-px-#{$rem-key}-#{$rem2-key} {
+        padding-left: $rem-val !important;
+        padding-right: $rem2-val !important;
+      }
+
+      .#{$prefijo}-my-#{$rem-key}-#{$rem2-key} {
+        margin-top: $rem-val !important;
+        margin-bottom: $rem2-val !important;
+      }
+
+      .#{$prefijo}-mx-#{$rem-key}-#{$rem2-key} {
+        margin-left: $rem-val !important;
+        margin-right: $rem2-val !important;
+      }
+    }
+  }
+}
+
+.sf-center-x {
+  margin: 0 auto;
+  display: block; // para que funcione con elementos como <div> o <button>
+}
+
+@each $name, $colors in $btn-colors {
+  .btn-#{$name} {
+    .btn-edge {
+      background: linear-gradient(to left, list.nth($colors, 2), list.nth($colors, 3) 8%, list.nth($colors, 4) 92%, list.nth($colors, 5)) !important;
+    }
+
+    .btn-front {
+      background: color.mix(#fff, list.nth($colors, 1), 15%) !important; // reemplaza mix de forma segura
+    }
+  }
+}
+
+
+// Generación de clases dinámicas
+@each $size, $value in $img-sizes {
+  .#{$prefijo}-img-#{$size} {
+    width: $value;
+  }
+}
+
+// 2. SEGUNDO: Todas las clases xs (480px+)
+@media (min-width: #{$breakpoint-xs}) {
+  @each $size, $value in $img-sizes {
+    .#{$prefijo}-img-xs-#{$size} {
+      width: $value !important;
+      max-width: none !important;
+    }
+  }
+}
+
+// 3. TERCERO: Todas las clases sm (576px+)
+@media (min-width: #{$breakpoint-sm}) {
+  @each $size, $value in $img-sizes {
+    .#{$prefijo}-img-sm-#{$size} {
+      width: $value !important;
+      max-width: none !important;
+    }
+  }
+}
+
+// 4. CUARTO: Todas las clases md (768px+)
+@media (min-width: #{$breakpoint-md}) {
+  @each $size, $value in $img-sizes {
+    .#{$prefijo}-img-md-#{$size} {
+      width: $value !important;
+      max-width: none !important;
+    }
+  }
+}
+
+// 5. QUINTO: Todas las clases lg (992px+)
+@media (min-width: #{$breakpoint-lg}) {
+  @each $size, $value in $img-sizes {
+    .#{$prefijo}-img-lg-#{$size} {
+      width: $value !important;
+      max-width: none !important;
+    }
+  }
+}
+
+// 6. SEXTO: Todas las clases xl (1200px+)
+@media (min-width: #{$breakpoint-xl}) {
+  @each $size, $value in $img-sizes {
+    .#{$prefijo}-img-xl-#{$size} {
+      width: $value !important;
+      max-width: none !important;
+    }
+  }
+}
+
+// 7. SÉPTIMO: Todas las clases 2xl (1350px+)
+@media (min-width: #{$breakpoint-2xl}) {
+  @each $size, $value in $img-sizes {
+    .#{$prefijo}-img-2xl-#{$size} {
+      width: $value !important;
+      max-width: none !important;
+    }
+  }
+}
+
+// 8. OCTAVO: Todas las clases 3xl (1920px+)
+@media (min-width: #{$breakpoint-3xl}) {
+  @each $size, $value in $img-sizes {
+    .#{$prefijo}-img-3xl-#{$size} {
+      width: $value !important;
+      max-width: none !important;
+    }
+  }
+}
+
+// Clases base
+@each $size, $width in $modal-sizes {
+  .#{$prefijo}-modal-#{$size} {
+    max-width: $width;
+  }
+}
+
+// Móviles - ancho completo
+@media (max-width: 575.98px) {
+  @each $size, $width in $modal-sizes {
+    .#{$prefijo}-modal-#{$size} {
+      max-width: none;
+      margin: 0.5rem;
+    }
+  }
+}
+
+// Responsive usando breakpoints dinámicos
+@each $bp-name, $bp-value in $breakpoints {
+  @if $bp-name == "sm" {
+    @media (min-width: #{$bp-value}) {
+      .#{$prefijo}-modal {
+        max-width: 500px;
+        margin: 1.75rem auto;
+      }
+      .#{$prefijo}-modal-sm {
+        max-width: map.get($modal-sizes, "sm");  // ← CAMBIAR ESTA LÍNEA
+      }
+    }
+  }
+  
+  @if $bp-name == "lg" {
+    @media (min-width: #{$bp-value}) {
+      @each $modal-name, $modal-width in $modal-sizes {
+        @if $modal-name == "lg" or $modal-name == "xl" or $modal-name == "xxl" {
+          .#{$prefijo}-modal-#{$modal-name} {
+            max-width: $modal-width;
+          }
+        }
+      }
+    }
+  }
+}

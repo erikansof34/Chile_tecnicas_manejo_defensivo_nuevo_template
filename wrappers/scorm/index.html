@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso SST - SCORM Package</title>
+    <script src="config.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #lesson-frame {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading" class="loading">Cargando lección...</div>
+    <iframe id="lesson-frame" style="display:none;"></iframe>
+    
+    <script>
+        // SCORM API 1.2 mejorada - Compatible con lms.js de iSpring
+        window.API = {
+            // Estado interno
+            _initialized: false,
+            _terminated: false,
+            _lastError: "0",
+            _errorStrings: {
+                "0": "No error",
+                "101": "General exception",
+                "201": "Invalid argument error",
+                "202": "Element cannot have children",
+                "203": "Element not an array - cannot have count",
+                "301": "Not initialized",
+                "401": "Not implemented error",
+                "402": "Invalid set value, element is a keyword",
+                "403": "Element is read only",
+                "404": "Element is write only",
+                "405": "Incorrect data type"
+            },
+            
+            // Datos CMI
+            _data: {
+                "cmi.core.lesson_status": "not attempted",
+                "cmi.core.student_id": "student_001",
+                "cmi.core.student_name": "Estudiante",
+                "cmi.core.score.raw": "",
+                "cmi.core.score.max": "100",
+                "cmi.core.score.min": "0",
+                "cmi.core.session_time": "00:00:00",
+                "cmi.core.total_time": "00:00:00",
+                "cmi.suspend_data": "",
+                "cmi.launch_data": "",
+                "cmi.comments": "",
+                "cmi.interactions._count": "0"
+            },
+
+            LMSInitialize: function(param) {
+                console.log('SCORM API: LMSInitialize called with:', param);
+                if (this._initialized) {
+                    this._lastError = "101";
+                    return "false";
+                }
+                this._initialized = true;
+                this._lastError = "0";
+                return "true";
+            },
+
+            LMSFinish: function(param) {
+                console.log('SCORM API: LMSFinish called with:', param);
+                if (!this._initialized || this._terminated) {
+                    this._lastError = "301";
+                    return "false";
+                }
+                this._terminated = true;
+                this._lastError = "0";
+                
+                // Guardar datos finales
+                this.LMSCommit("");
+                return "true";
+            },
+
+            LMSGetValue: function(element) {
+                console.log('SCORM API: LMSGetValue called for:', element);
+                if (!this._initialized || this._terminated) {
+                    this._lastError = "301";
+                    return "";
+                }
+                
+                if (this._data.hasOwnProperty(element)) {
+                    this._lastError = "0";
+                    return this._data[element];
+                }
+                
+                this._lastError = "201";
+                return "";
+            },
+
+            LMSSetValue: function(element, value) {
+                console.log('SCORM API: LMSSetValue called:', element, '=', value);
+                if (!this._initialized || this._terminated) {
+                    this._lastError = "301";
+                    return "false";
+                }
+                
+                // Elementos de solo lectura
+                const readOnlyElements = [
+                    "cmi.core.student_id",
+                    "cmi.core.student_name",
+                    "cmi.core.score.max",
+                    "cmi.core.score.min"
+                ];
+                
+                if (readOnlyElements.includes(element)) {
+                    this._lastError = "403";
+                    return "false";
+                }
+                
+                // Validaciones específicas
+                if (element === "cmi.core.lesson_status") {
+                    const validStatuses = ["passed", "completed", "failed", "incomplete", "browsed", "not attempted"];
+                    if (!validStatuses.includes(value)) {
+                        this._lastError = "405";
+                        return "false";
+                    }
+                }
+                
+                if (element === "cmi.core.score.raw") {
+                    const score = parseFloat(value);
+                    if (isNaN(score) || score < 0 || score > 100) {
+                        this._lastError = "405";
+                        return "false";
+                    }
+                }
+                
+                this._data[element] = value;
+                this._lastError = "0";
+                return "true";
+            },
+
+            LMSCommit: function(param) {
+                console.log('SCORM API: LMSCommit called with:', param);
+                if (!this._initialized || this._terminated) {
+                    this._lastError = "301";
+                    return "false";
+                }
+                
+                // Aquí se enviarían los datos al LMS real
+                console.log('SCORM API: Committing data:', this._data);
+                this._lastError = "0";
+                return "true";
+            },
+
+            LMSGetLastError: function() {
+                return this._lastError;
+            },
+
+            LMSGetErrorString: function(errorCode) {
+                return this._errorStrings[errorCode] || "Unknown error";
+            },
+
+            LMSGetDiagnostic: function(errorCode) {
+                return this._errorStrings[errorCode] || "Unknown error";
+            },
+
+            // Métodos auxiliares para facilitar uso
+            setProgress: function(percentage) {
+                this.LMSSetValue("cmi.core.score.raw", percentage.toString());
+                if (percentage >= 80) {
+                    this.LMSSetValue("cmi.core.lesson_status", "passed");
+                } else if (percentage > 0) {
+                    this.LMSSetValue("cmi.core.lesson_status", "incomplete");
+                }
+                this.LMSCommit("");
+            },
+
+            setCompleted: function(passed = true) {
+                this.LMSSetValue("cmi.core.lesson_status", passed ? "passed" : "completed");
+                this.LMSCommit("");
+            },
+
+            setScore: function(score, maxScore = 100) {
+                this.LMSSetValue("cmi.core.score.raw", score.toString());
+                this.LMSSetValue("cmi.core.score.max", maxScore.toString());
+                this.LMSCommit("");
+            }
+        };
+
+        // Inicializar SCORM automáticamente
+        window.addEventListener('load', function() {
+            console.log('SCORM: Inicializando comunicación con LMS...');
+            window.API.LMSInitialize("");
+        });
+
+        // Finalizar SCORM al cerrar ventana
+        window.addEventListener('beforeunload', function() {
+            console.log('SCORM: Finalizando comunicación con LMS...');
+            window.API.LMSFinish("");
+        });
+
+        // Cargar la lección especificada en config.js
+        document.addEventListener('DOMContentLoaded', function() {
+            const lessonFrame = document.getElementById('lesson-frame');
+            const loading = document.getElementById('loading');
+            
+            if (window.SCORM_CONFIG && window.SCORM_CONFIG.lessonPath) {
+                lessonFrame.src = window.SCORM_CONFIG.lessonPath;
+                
+                lessonFrame.onload = function() {
+                    loading.style.display = 'none';
+                    lessonFrame.style.display = 'block';
+                    
+                    // Notificar que la lección se ha cargado
+                    console.log('SCORM: Lección cargada -', window.SCORM_CONFIG.lessonTitle);
+                    
+                    // Hacer API disponible para la lección
+                    if (lessonFrame.contentWindow) {
+                        lessonFrame.contentWindow.API = window.API;
+                        lessonFrame.contentWindow.scormAPI = window.API; // Compatibilidad adicional
+                    }
+                };
+                
+                lessonFrame.onerror = function() {
+                    loading.innerHTML = 'Error: No se pudo cargar la lección';
+                    console.error('SCORM: Error cargando lección');
+                };
+            } else {
+                loading.innerHTML = 'Error: Configuración de lección no encontrada';
+                console.error('SCORM: Configuración no encontrada');
+            }
+        });
+    </script>
+</body>
+</html>
