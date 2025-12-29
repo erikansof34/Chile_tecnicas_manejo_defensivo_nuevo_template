@@ -12,20 +12,28 @@ const WRAPPERS_DIR = './wrappers';
 // Información de las lecciones
 const LESSONS_INFO = {
     'leccion1': {
-        title: 'Lección 1: Fundamentos de SST',
-        description: 'Fundamentos de la Seguridad y Salud en el Trabajo'
+        title: 'Lección 1: Introducción al Manejo Defensivo',
+        description: 'Fundamentos y conceptos básicos del manejo defensivo'
     },
     'leccion2': {
-        title: 'Lección 2: Identificación de Riesgos',
-        description: 'Identificación y Evaluación de Riesgos Laborales'
+        title: 'Lección 2: Factores de Riesgo en la Conducción',
+        description: 'Identificación y evaluación de riesgos en la conducción'
     },
     'leccion3': {
-        title: 'Lección 3: Protocolos Preventivos',
-        description: 'Protocolos y Medidas Preventivas'
+        title: 'Lección 3: Técnicas de Manejo Defensivo',
+        description: 'Técnicas y estrategias para una conducción segura'
     },
     'inicio': {
-        title: 'Guía del Usuario - Orientación y Prevención de Riesgos DS 44',
+        title: 'Guía del Usuario - Técnicas de Manejo Defensivo',
         description: 'Página de inicio con guía del usuario, objetivos y estructura temática'
+    },
+    'compromiso': {
+        title: 'Compromiso del Participante',
+        description: 'Compromiso y declaración del participante'
+    },
+    'evaluacion': {
+        title: 'Evaluación Final',
+        description: 'Evaluación final del curso'
     }
 };
 
@@ -33,13 +41,17 @@ const LESSONS_INFO = {
  * Genera el archivo imsmanifest.xml para SCORM 1.2
  */
 function generateManifest(lessonId, isUnified = false) {
-    const lessonInfo = LESSONS_INFO[lessonId] || { title: 'Curso Completo', description: 'Curso completo de SST' };
+    const lessonInfo = LESSONS_INFO[lessonId] || { title: 'Curso Completo', description: 'Curso completo de Técnicas de Manejo Defensivo' };
     let resourceHref;
     
     if (isUnified) {
         resourceHref = 'index.html';
     } else if (lessonId === 'inicio') {
         resourceHref = 'index.html'; // Para inicio, usamos el index.html de la raíz
+    } else if (lessonId === 'compromiso') {
+        resourceHref = 'module/compromiso/compromiso.html';
+    } else if (lessonId === 'evaluacion') {
+        resourceHref = 'module/evaluacion/quiz.html';
     } else {
         resourceHref = `module/${lessonId}/index.html`;
     }
@@ -92,8 +104,18 @@ function generateFileList(isUnified, lessonId) {
         files.push('<file href="module/inicio/inicio.html"/>');
     }
     
+    // Para compromiso, agregar archivos específicos
+    if (lessonId === 'compromiso') {
+        files.push('<file href="module/compromiso/compromiso.html"/>');
+    }
+    
+    // Para evaluacion, agregar archivos específicos
+    if (lessonId === 'evaluacion') {
+        files.push('<file href="module/evaluacion/quiz.html"/>');
+    }
+    
     // Archivos específicos de la lección
-    if (!isUnified && lessonId !== 'inicio') {
+    if (!isUnified && lessonId !== 'inicio' && lessonId !== 'compromiso' && lessonId !== 'evaluacion') {
         // Archivos principales de la lección
         files.push(`<file href="module/${lessonId}/evaluacion_leccion.html"/>`);
         files.push(`<file href="module/${lessonId}/resumen_leccion.html"/>`);
@@ -101,9 +123,11 @@ function generateFileList(isUnified, lessonId) {
         
         // Archivos de momentos dinámicos según la lección
         const momentPatterns = {
-            'leccion1': ['momento1_1', 'momento1_2', 'momento1_3', 'momento1_4', 'momento1_5actividad', 'momento1_6actividad', 'momento1_7', 'momento1_8actividad'],
-            'leccion2': ['momento2_1', 'momento2_2', 'momento2_3', 'momento2_4', 'momento2_5', 'momento2_6', 'momento2_7', 'momento2_8', 'momento2_9', 'momento2_10'],
-            'leccion3': ['momento3_1', 'momento3_2', 'momento3_3', 'momento3_4', 'momento3_5', 'momento3_6', 'momento3_7', 'momento3_8', 'momento3_9', 'momento3_10', 'momento3_11']
+            'leccion1': ['momento1_1', 'momento1_2', 'momento1_3', 'momento1_4', 'momento1_5'],
+            'leccion2': ['momento2_1', 'momento2_2', 'momento2_3', 'momento2_3a', 'momento2_4', 'momento2_5', 'momento2_5a', 'momento2_6'],
+            'leccion3': ['momento3_1', 'momento3_2', 'momento3_3', 'momento3_4', 'momento3_5', 'momento3_6', 'momento3_7'],
+            'compromiso': [],
+            'evaluacion': []
         };
         
         const momentos = momentPatterns[lessonId] || [];
@@ -157,15 +181,25 @@ function generateFileList(isUnified, lessonId) {
  */
 function updateScormConfig(lessonId) {
     const lessonInfo = LESSONS_INFO[lessonId];
-    const lessonPath = lessonId === 'inicio' ? 'module/inicio/inicio.html' : `module/${lessonId}/index.html`;
+    const lessonPath = lessonId === 'inicio' ? 'module/inicio/inicio.html' : 
+                      lessonId === 'compromiso' ? 'module/compromiso/compromiso.html' :
+                      lessonId === 'evaluacion' ? 'module/evaluacion/quiz.html' :
+                      `module/${lessonId}/index.html`;
     const configContent = `// Configuración SCORM - Generado automáticamente
 window.SCORM_CONFIG = {
     lessonPath: '${lessonPath}',
-    courseTitle: 'Orientación y Prevención de Riesgos DS 44',
+    courseTitle: 'Técnicas de Manejo Defensivo',
     lessonTitle: '${lessonInfo.title}',
     lessonDescription: '${lessonInfo.description}',
     version: '1.0',
     scormVersion: '1.2'
+};
+
+// Configuración específica para Chile
+window.COURSE_CONFIG = {
+    country: 'Chile',
+    courseCode: 'TMD-CL-001',
+    provider: 'Sofactia'
 };`;
     
     return configContent;
@@ -248,6 +282,39 @@ async function validateLesson(lessonId) {
         const inicioHtmlExists = await fs.pathExists(path.join(inicioPath, 'inicio.html'));
         if (!inicioHtmlExists) {
             throw new Error(`No se encontró inicio.html en el módulo 'inicio'`);
+        }
+        
+        return true;
+    }
+    
+    // Para compromiso y evaluacion, validar estructura específica
+    if (lessonId === 'compromiso') {
+        const compromisePath = path.join(MODULE_DIR, 'compromiso');
+        const exists = await fs.pathExists(compromisePath);
+        
+        if (!exists) {
+            throw new Error(`El módulo 'compromiso' no existe en ${compromisePath}`);
+        }
+        
+        const htmlExists = await fs.pathExists(path.join(compromisePath, 'compromiso.html'));
+        if (!htmlExists) {
+            throw new Error(`No se encontró compromiso.html en el módulo 'compromiso'`);
+        }
+        
+        return true;
+    }
+    
+    if (lessonId === 'evaluacion') {
+        const evaluacionPath = path.join(MODULE_DIR, 'evaluacion');
+        const exists = await fs.pathExists(evaluacionPath);
+        
+        if (!exists) {
+            throw new Error(`El módulo 'evaluacion' no existe en ${evaluacionPath}`);
+        }
+        
+        const htmlExists = await fs.pathExists(path.join(evaluacionPath, 'quiz.html'));
+        if (!htmlExists) {
+            throw new Error(`No se encontró quiz.html en el módulo 'evaluacion'`);
         }
         
         return true;
@@ -453,13 +520,13 @@ async function buildUnified() {
  * Muestra ayuda de uso
  */
 function showHelp() {
-    console.log('\n📚 Sistema de Empaquetado SCORM');
-    console.log('='.repeat(40));
+    console.log('\n📚 Sistema de Empaquetado SCORM - Técnicas de Manejo Defensivo');
+    console.log('='.repeat(65));
     console.log('\nUso:');
-    console.log('  node build.js <leccion>     # Empaquetar lección específica');
-    console.log('  node build.js inicio        # Empaquetar página de inicio');
-    console.log('  node build.js unificado     # Empaquetar curso completo');
-    console.log('\nLecciones disponibles:');
+    console.log('  node build.js <modulo>       # Empaquetar módulo específico');
+    console.log('  node build.js inicio         # Empaquetar página de inicio');
+    console.log('  node build.js unificado      # Empaquetar curso completo');
+    console.log('\nMódulos disponibles:');
     Object.keys(LESSONS_INFO).forEach(lesson => {
         if (lesson === 'inicio') {
             console.log(`  - ${lesson}: ${LESSONS_INFO[lesson].title} (NUEVO)`);
@@ -470,7 +537,10 @@ function showHelp() {
     console.log('\nEjemplos:');
     console.log('  node build.js leccion1');
     console.log('  node build.js leccion2');
-    console.log('  node build.js inicio        # Genera SCORM con index.html + module/inicio/');
+    console.log('  node build.js leccion3');
+    console.log('  node build.js compromiso');
+    console.log('  node build.js evaluacion');
+    console.log('  node build.js inicio         # Genera SCORM con index.html + module/inicio/');
     console.log('  node build.js unificado');
     console.log('\nSalida:');
     console.log('  - Archivos SCORM en ./dist/');
@@ -497,10 +567,12 @@ async function main() {
         await buildUnified();
     } else if (target === 'inicio') {
         await buildInicio();
+    } else if (target === 'compromiso' || target === 'evaluacion') {
+        await buildLesson(target);
     } else if (LESSONS_INFO[target]) {
         await buildLesson(target);
     } else {
-        console.error(`❌ Lección '${target}' no reconocida`);
+        console.error(`❌ Módulo '${target}' no reconocido`);
         showHelp();
         process.exit(1);
     }

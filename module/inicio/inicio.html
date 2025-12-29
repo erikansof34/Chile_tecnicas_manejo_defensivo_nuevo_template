@@ -406,11 +406,11 @@
             </p>
             <p id="success-msg" class="sf-msg sf-msg-success hidden">¡Perfecto! Ya puedes comenzar tu curso.</p>
 
-            <button class="sf-btn sf-btn-block sf-disabled" id="start-btn">
+            <!-- <button class="sf-btn sf-btn-block sf-disabled" id="start-btn">
                 <i class="fas fa-hand-pointer"></i> Comenzar el curso
-            </button>
-            <!-- <button class="sf-btn sf-btn-block sf-disabled" onclick="comenzarCurso()">
-                <i class="fas fa-hand-pointer"></i> Comenzar el curso</button> -->
+            </button> -->
+            <button class="sf-btn sf-btn-block sf-disabled" id="start-btn" onclick="comenzarCurso()">
+                <i class="fas fa-hand-pointer"></i> Comenzar el curso</button>
 
         </section>
     </div>
@@ -429,9 +429,9 @@
                 (window !== window.top);
         }
 
-        document.getElementById('start-btn').addEventListener('click', function () {
-            window.location.href = '../leccion1/index.html';
-        });
+        // document.getElementById('start-btn').addEventListener('click', function () {
+        //     window.location.href = '../leccion1/index.html';
+        // });
 
         // FUNCIÓN DE REDIRECCIONAMIENTO COMENTADA - Para uso futuro
         /*
