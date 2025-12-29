@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Estilos del widget -->
     <link rel="stylesheet" href="../../plugins/libs/assetsWidget/css/widget.css">
+    <!-- Estilos de transcripción -->
+    <link rel="stylesheet" href="../../plugins/libs/component/transcripcion/transcripcion.css">
 </head>
 
 <body class="sf-scroll-y-hidden sf-bg-dark">
@@ -26,7 +28,36 @@
                 <h1 class="sf-txt-1xl-700 sf-text-white">Resumen <span class="sf-text-purple">Lección 2</span></h1>
                 <img class="mx-auto sf-img-40 sf-img-md-100 sf-img-sm-30" src="../leccion2/gif/avatar_compromiso.gif"
                     alt="avatar">
-                <audio src="../leccion2/resumen_leccion-2.mp3" controls class="mt-3"></audio>
+                <div class="audio-center py-2">
+                    <audio class="audio-con-transcripcion" controls data-transcripcion='[
+                        {"end":4.78,"start":0,"text":"Este curso busca mejorar la cultura de prevención vial y modificar las conductas y actitudes"},
+                        {"end":5.94,"start":4.78,"text":"durante la conducción."},
+                        {"end":11.66,"start":6.76,"text":"El objetivo es proteger la vida y reducir la siniestralidad, tanto en el ámbito laboral"},
+                        {"end":16.7,"start":11.66,"text":"como en la vida diaria, recordando las técnicas más útiles para conducir de manera segura"},
+                        {"end":18.84,"start":16.7,"text":"y responsable, cumpliendo con la ley."},
+                        {"end":25.28,"start":19.64,"text":"La estructura temática del curso se divide en tres partes, la teoría del manejo defensivo,"},
+                        {"end":29.92,"start":25.28,"text":"los buenos hábitos de manejo defensivo y los factores para evitar accidentes de tránsito."},
+                        {"end":35.74,"start":30.5,"text":"El manejo defensivo es una técnica de conducción que se enfoca en la prudencia, el respeto"},
+                        {"end":40.26,"start":35.74,"text":"por las normas de tránsito y la prevención de accidentes, anticipando los posibles"},
+                        {"end":44.14,"start":40.26,"text":"peligros que puedan surgir en el camino y tomando medidas para evitarlos."},
+                        {"end":50.16,"start":44.74,"text":"El curso resalta que para aplicar un buen manejo defensivo es fundamental tener una actitud"},
+                        {"end":55.78,"start":50.16,"text":"responsable y previsiva, evitando comportamientos imprudentes como conducir distraído, no"},
+                        {"end":60.86,"start":55.78,"text":"respetar los límites de velocidad, hacerlo en estado de ebriedad o no mantener una distancia"},
+                        {"end":62.08,"start":60.86,"text":"de seguridad adecuada."},
+                        {"end":68.14,"start":62.72,"text":"Para conducir de forma defensiva, se deben considerar aspectos clave como la actitud, el"},
+                        {"end":72.42,"start":68.14,"text":"espacio, la visión, las condiciones de la vía y el estado del vehículo."},
+                        {"end":78.22,"start":73.14,"text":"Una buena actitud implica realizar un chequeo antes de salir, mantenerse atento y conocer"},
+                        {"end":78.78,"start":78.22,"text":"la ruta."},
+                        {"end":84.52,"start":79.74,"text":"El espacio se refiere a dejar tiempo y distancia para maniobrar, la visión a observar todo"},
+                        {"end":88.84,"start":84.52,"text":"lo que sucede alrededor y las condiciones a tener en cuenta el estado del clima."},
+                        {"end":94.62,"start":89.76,"text":"Finalmente, es necesario mantener el vehículo en buenas condiciones técnico mecánicas"},
+                        {"end":96.54,"start":94.62,"text":"para prevenir fallas inesperadas."}
+                        ]'>
+                        <source src="../leccion2/resumen_leccion-2.mp3" type="audio/mp3">
+                    </audio>
+                    <i class="transcription-toggle fas fa-closed-captioning audio-estilos"></i>
+                </div>
+                <!-- <audio src="../leccion2/resumen_leccion-2.mp3" controls class="mt-3"></audio> -->
             </div>
             <div class="col-lg-8 col-md-9 mt-4 my-md-0">
                 <div class="mx-md-5 mx-4 sf-lh-xs">
@@ -55,6 +86,8 @@
     <script src="../../plugins/libs/jquery-3.3.1.js"></script>
     <!-- Script del Widget -->
     <script src="../../plugins/libs/assetsWidget/js/widget.js"></script>
+    <!-- Script de transcripción -->
+    <script src="../../plugins/libs/component/transcripcion/transcripcion.js"></script>
 
     <script>
         function btnPrev() {
@@ -72,7 +105,16 @@
             window.location.href = "./evaluacion_leccion.html";
             // window.location.href = path.replace("evaluacion", "compromiso") + "/compromiso.html";
         };
+
+        // Inicializar transcripciones cuando el DOM esté listo
+        $(document).ready(function () {
+            if (typeof initTranscripciones === 'function') {
+                initTranscripciones();
+            }
+        });
     </script>
+    <!-- Contenedor global para transcripciones -->
+    <div id="transcripcion-global"></div>
 </body>
 
 </html>

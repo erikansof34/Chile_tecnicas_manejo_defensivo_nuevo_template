@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Estilos del widget -->
     <link rel="stylesheet" href="../../plugins/libs/assetsWidget/css/widget.css">
+    <!-- Estilos de transcripción -->
+    <link rel="stylesheet" href="../../plugins/libs/component/transcripcion/transcripcion.css">
 </head>
 
 <body class="sf-scroll-y-hidden sf-bg-dark">
@@ -27,7 +29,28 @@
                 <h1 class="sf-txt-1xl-700 sf-text-white">Resumen <span class="sf-text-purple">Lección 3</span></h1>
                 <img class="mx-auto sf-img-30 sf-img-md-100 sf-img-sm-30"
                     src="../leccion3/gif/avatar_hombre_brazos_cruzados.gif" alt="avatar">
-                <audio src="../leccion3/resumen_leccion-3.mp3" controls class="mt-3"></audio>
+                <div class="audio-center py-2">
+                    <audio class="audio-con-transcripcion" controls data-transcripcion='[
+                        {"end":5.44,"start":0,"text":"La lección 3 del curso se enfoca en los factores que causan accidentes de tránsito y como evitarlos."},
+                        {"end":19.34,"start":12.23,"text":"Estos factores se clasifican en tres categorías principales, el conductor, que incluye ceder los límites de velocidad,"},
+                        {"end":20.61,"start":19.4,"text":"la falta de pericia,"},
+                        {"end":19.48,"start":14.86,"text":"conducir bajo los efectos del alcohol, drogas o emociones fuertes, el vehículo,"},
+                        {"end":24.68,"start":19.78,"text":"donde entran los efectos de iluminación o frenos y la falta de inspección preoperacional,"},
+                        {"end":56.03,"start":49.02,"text":"y el medio que abarca la estructura de la vía, las condiciones climáticas como la lluvia o la niebla y la presencia de"},
+                        {"end":56.62,"start":56.09,"text":"animales."},
+                        {"end":38.32,"start":33.14,"text":"El curso enfatiza la importancia de conocer y respetar las normas para prevenir siniestros."},
+                        {"end":78.62,"start":72.34,"text":"Una de las claves para evitar colisiones frontales es mantener la distancia de seguridad recomendada según la velocidad"},
+                        {"end":79.72,"start":78.67,"text":"a la que se circula."},
+                        {"end":95.07,"start":88.74,"text":"Además, se recalca que las señales de tránsito son normas de cumplimiento obligatorio que los usuarios de la vía deben"},
+                        {"end":95.56,"start":95.13,"text":"conocer,"},
+                        {"end":55.56,"start":54.1,"text":"acatar y conservar."},
+                        {"end":118.56,"start":111.47,"text":"Estas se dividen en señales reglamentarias que indican prohibiciones o limitaciones, señales preventivas que advierten"},
+                        {"end":123.91,"start":118.62,"text":"sobre peligros y señales informativas que guían al conductor hacia destinos o servicios."}
+                        ]'>
+                        <source src="../leccion3/resumen_leccion-3.mp3" type="audio/mp3">
+                    </audio>
+                    <i class="transcription-toggle fas fa-closed-captioning audio-estilos"></i>
+                </div>
             </div>
             <div class="col-lg-8 col-md-9 mt-4 my-md-0">
                 <div class="mx-md-5 mx-4 sf-lh-xs">
@@ -56,6 +79,8 @@
     <script src="../../plugins/libs/jquery-3.3.1.js"></script>
     <!-- Script del Widget -->
     <script src="../../plugins/libs/assetsWidget/js/widget.js"></script>
+    <!-- Script de transcripción -->
+    <script src="../../plugins/libs/component/transcripcion/transcripcion.js"></script>
 
     <script>
         function btnPrev() {
@@ -73,7 +98,16 @@
             window.location.href = "./evaluacion_leccion.html";
             // window.location.href = path.replace("evaluacion", "compromiso") + "/compromiso.html";
         };
+
+        // Inicializar transcripciones cuando el DOM esté listo
+        $(document).ready(function () {
+            if (typeof initTranscripciones === 'function') {
+                initTranscripciones();
+            }
+        });
     </script>
+    <!-- Contenedor global para transcripciones -->
+    <div id="transcripcion-global"></div>
 </body>
 
 </html>

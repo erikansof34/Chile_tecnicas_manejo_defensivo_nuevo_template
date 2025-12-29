@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Estilos del widget -->
     <link rel="stylesheet" href="../../plugins/libs/assetsWidget/css/widget.css">
+    <!-- Estilos de transcripción -->
+    <link rel="stylesheet" href="../../plugins/libs/component/transcripcion/transcripcion.css">
 </head>
 
 <body class="sf-scroll-y-hidden sf-bg-dark">
@@ -27,7 +29,34 @@
                 <h1 class="sf-txt-1xl-700 sf-text-white">Resumen <span class="sf-text-purple">Lección 1</span></h1>
                 <img class="mx-auto sf-img-40 sf-img-md-100 sf-img-sm-30"
                     src="../leccion1/gif/avatar_hombre_leer_cuaderno.gif" alt="avatar">
-                <audio src="../leccion1/resumen-leccion-1.mp3" controls class="mt-3"></audio>
+                <div class="audio-center py-2">
+                    <audio class="audio-con-transcripcion" controls data-transcripcion='[
+                        {"end":4.94,"start":0,"text":"El curso de técnicas de manejo defensivo, un espacio virtual diseñado para fortalecer"},
+                        {"end":6.88,"start":4.94,"text":"nuestra cultura de prevención vial."},
+                        {"end":12.76,"start":7.6,"text":"El objetivo principal es transformar nuestras conductas y actitudes al volante, protegiendo"},
+                        {"end":17.3,"start":12.76,"text":"vidas y reduciendo la siniestralidad tanto en nuestras operaciones laborales como en el"},
+                        {"end":17.88,"start":17.3,"text":"día a día."},
+                        {"end":24.16,"start":18.72,"text":"Nos enfocaremos en recordar y aplicar las técnicas de manejo defensivo más efectivas para conducir"},
+                        {"end":29.32,"start":24.16,"text":"de forma segura, responsable y cumpliendo la ley, siempre buscando prevenir accidentes"},
+                        {"end":29.86,"start":29.32,"text":"en la vía."},
+                        {"end":35.6,"start":30.6,"text":"El manejo defensivo es una técnica de conducción que busca prevenir accidentes y proteger la"},
+                        {"end":38.38,"start":35.6,"text":"seguridad vial de todos los usuarios de la carretera."},
+                        {"end":43.62,"start":39.16,"text":"Se basa en la prudencia y el respeto por las normas de tránsito, requiriendo una"},
+                        {"end":48.46,"start":43.62,"text":"actitud responsable y previsiva al volante, evitando comportamientos imprudentes."},
+                        {"end":53.4,"start":49.34,"text":"Por otro lado, la conducción no defensiva incluye comportamientos como."},
+                        {"end":59.14,"start":53.4,"text":"Conducir distraído, hablar por teléfono, enviar mensajes, comer, etc."},
+                        {"end":62.26,"start":60.22,"text":"No respetar los límites de velocidad."},
+                        {"end":64.9,"start":63.26,"text":"Conducir en estado de abriedad."},
+                        {"end":67.66,"start":65.74,"text":"No mantener el vehículo en buen estado."},
+                        {"end":70.58,"start":68.46,"text":"No respetar las señales de tránsito."},
+                        {"end":74.18,"start":71.34,"text":"No mantener una distancia segura con otros vehículos."},
+                        {"end":79.82,"start":75.06,"text":"Este curso nos invita a reflexionar sobre la importancia de actuar de forma proactiva para"},
+                        {"end":82.68,"start":79.82,"text":"mejorar nuestra competitividad y seguridad en las vías."}
+                        ]'>
+                        <source src="../leccion1/resumen-leccion-1.mp3" type="audio/mp3">
+                    </audio>
+                    <i class="transcription-toggle fas fa-closed-captioning audio-estilos"></i>
+                </div>
             </div>
             <div class="col-lg-8 col-md-9 mt-4 my-md-0">
                 <div class="mx-md-5 mx-4 sf-lh-xs">
@@ -56,6 +85,8 @@
     <script src="../../plugins/libs/jquery-3.3.1.js"></script>
     <!-- Script del Widget -->
     <script src="../../plugins/libs/assetsWidget/js/widget.js"></script>
+    <!-- Script de transcripción -->
+    <script src="../../plugins/libs/component/transcripcion/transcripcion.js"></script>
 
     <script>
         function btnPrev() {
@@ -73,7 +104,16 @@
             window.location.href = "./evaluacion_leccion.html";
             // window.location.href = path.replace("evaluacion", "compromiso") + "/compromiso.html";
         };
+
+        // Inicializar transcripciones cuando el DOM esté listo
+        $(document).ready(function () {
+            if (typeof initTranscripciones === 'function') {
+                initTranscripciones();
+            }
+        });
     </script>
+    <!-- Contenedor global para transcripciones -->
+    <div id="transcripcion-global"></div>
 </body>
 
 </html>

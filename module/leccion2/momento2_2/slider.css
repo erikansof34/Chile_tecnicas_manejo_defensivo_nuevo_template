@@ -47,9 +47,10 @@
   align-items: center;
   position: relative;
   margin-bottom: 2%;
-  justify-content: space-around;
+  justify-content: center;
   width: 100%;
   padding: 20px 0;
+  gap: 3.75rem;
 }
 
 .gearbox {
@@ -117,7 +118,8 @@
 @media (max-width: 768px) {
   .background-light-sdl22 {
     flex-direction: column;
-    padding: 15px;
+    padding: 15px 25px;
+    gap: 10px;
   }
 
   .gearbox {
